@@ -96,6 +96,7 @@ print.scalar_with_cause <- function(x, ...)
 #' to show. 
 #' @param ... Currently unused.
 #' @method print vector_with_cause
+#' @importFrom utils head
 #' @export
 print.vector_with_cause <- function(x, na_ignore = FALSE, n_to_show = 10, ...)
 {

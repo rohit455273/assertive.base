@@ -10,6 +10,7 @@
 #' # This is useful for including data frames in warnings or errors
 #' message("This is the CO2 dataset:\n", print_and_capture(CO2))
 #' }
+#' @importFrom utils capture.output
 print_and_capture <- function(x)
 {
   paste(capture.output(print(x)), collapse = "\n")

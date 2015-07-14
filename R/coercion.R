@@ -74,6 +74,7 @@ is2 <- function(x, class, .xname = get_name_in_parent(x))
 #' @examples
 #' # Numbers can be coerced to characters but not to calls.
 #' dont_stop(coerce_to(1:5, c("call", "character")))
+#' @importFrom methods as
 #' @export
 coerce_to <- function(x, target_class, .xname = get_name_in_parent(x))
 {
