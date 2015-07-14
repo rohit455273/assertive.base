@@ -29,7 +29,7 @@ cause <- function(x)
   if(length(value) != 1 && length(value) != length(x))
   {
     stop(
-      gettextf(
+      sprintf(
         "The length of value should be 1 or the length of x (%d) but is %d.", 
         length(x),
         length(value)

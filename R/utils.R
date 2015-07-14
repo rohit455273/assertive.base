@@ -112,8 +112,10 @@ merge.list <- function(x, y, ...)
   if(anyDuplicated(all_names) > 0)
   {
     warning(
-      "Duplicated arguments: ", 
-      toString(all_names[duplicated(all_names)])
+      sprintf(
+        "Duplicated arguments: %s", 
+        toString(all_names[duplicated(all_names)])
+      )
     )
     all_values <- all_values[!duplicated(all_names)]
   }
@@ -306,7 +308,7 @@ use_first <- function(x, indexer = c("[[", "["))
   # functions calls this one.
   if(length(x) == 0L)
   {
-    stop(gettextf("%s has length 0.", get_name_in_parent(x)))
+    stop(sprintf("%s has length 0.", get_name_in_parent(x)))
   }
   if(length(x) == 1L)
   {
@@ -314,7 +316,7 @@ use_first <- function(x, indexer = c("[[", "["))
   }
   indexer <- match.fun(match.arg(indexer))
   warning(
-    gettextf(
+    sprintf(
       "Only the first value of %s will be used.",
       sQuote(get_name_in_parent(x))
     ),

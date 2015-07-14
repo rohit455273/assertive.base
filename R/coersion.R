@@ -91,7 +91,7 @@ coerce_to <- function(x, target_class, .xname = get_name_in_parent(x))
     if(!is2(x, this_class))
     {
       warning(
-        gettextf(
+        sprintf(
           "Coercing %s to class %s.", 
           .xname,
           sQuote(this_class)
@@ -113,7 +113,7 @@ coerce_to <- function(x, target_class, .xname = get_name_in_parent(x))
           {
             # Can't coerce to this class; warn and move to next class
             warning(
-              gettextf(
+              sprintf(
                 "%s cannot be coerced to type %s.", 
                 .xname,
                 sQuote(this_class)
@@ -127,7 +127,7 @@ coerce_to <- function(x, target_class, .xname = get_name_in_parent(x))
   }
   # Nothing worked; throw an error
   stop(
-    gettextf(
+    sprintf(
       "%s cannot be coerced to any of these types: %s.", 
       .xname,
       toString(sQuote(target_class))
