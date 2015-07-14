@@ -124,19 +124,19 @@ print.vector_with_cause <- function(x, na_ignore = FALSE, n_to_show = 6, ...)
     Cause    = unclass(cause_x[fail_index]), # See bug 15997
     row.names = seq_along(fail_index)
   )
-  cat(
-    "There ", 
-    ngettext(n, "was", "were"), 
-    " ", 
-    n, 
-    " ", 
+  # Slightly convoluted way of creating message done to ensure that xgettext
+  # creates all the translation strings
+  msg_showing_first <- if(nrow(failures) < n) 
+  {
+    gettextf(" (showing the first %d)", nrow(failures))
+  } else ""
+  msg_n_failures <- gettextf(
+    "There %s %d %s%s:\n",
+    ngettext(n, "was", "were"),
+    n,
     ngettext(n, "failure", "failures"),
-    if(nrow(failures) < n) 
-    {
-      paste0(" (showing the first ", nrow(failures), ")")
-    },
-    ":\n",
-    sep = ""
+    msg_showing_first
   )
+  cat(msg_n_failures)
   print(failures)
 }
