@@ -51,6 +51,7 @@ cause <- function(x)
 #' \code{x} is \code{TRUE}, and \code{value} elsewhere.
 #' @return \code{x}, with a new cause attribute.
 #' @seealso \code{\link{cause}}, \code{\link[stats]{setNames}}
+#' @export
 set_cause <- function(x, value)
 {
   if(all(!is.na(x) & x)) return(x)

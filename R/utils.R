@@ -1,28 +1,51 @@
-#' Convert file connections to strings
+#' Wrapper to vapply that returns booleans.
 #' 
-#' \code{as.character} method for file connections.
-#' @param x A file connection.
-#' @param ... Not currently used.
-#' @return A string containing the target location of the file connection.
-#' @seealso \code{\link[base]{file}}, \code{\link[base]{summary.connection}},
-#' \code{\link[base]{as.character}}
-#' @examples
-#' rprofile <- file.path(R.home("etc"), "Rprofile.site")
-#' fcon <- file(rprofile)
-#' assert_all_are_true(identical(as.character(fcon), rprofile))
-#' close(fcon)
-#' @method as.character file
+#' Wrapper to \code{\link{vapply}} for functions that return a boolean (logical 
+#' scalar) value.
+#' 
+#' @param x A vector (atomic or list).
+#' @param predicate A predicate (function that returns a bool) to apply.
+#' elementwise to \code{x}.
+#' @param ... Passed to \code{vapply}.
+#' @return A logical vector.
+#' @note \code{USE.NAMES} is set to \code{TRUE}
+#' @seealso \code{\link{vapply}}.
 #' @export
-as.character.file <- function(x, ...)
+bapply <- function(x, predicate, ...)
 {
-  # Assertion is to double check that no other package has overwritten the 
-  # file class. Want to use assert_is_file_connection(x), but can't have 
-  # cyclic dependency.
-  if(!inherits(x, c("file", "connection")))
+  vapply(x, predicate, logical(1L), ..., USE.NAMES = TRUE)
+}
+
+#' Call a function, and give the result names.
+#'
+#' Calls a function, and names the result with the first argument.
+#'
+#' @param fn A function to call.  See note below.
+#' @param x The first input to \code{fn}.
+#' @param ... Optional additional inputs to \code{fn}.
+#' @return The result of \code{fn(x, ...)}, with names given by the
+#' argument \code{x}.
+#' @note The function, \code{fn}, should return an object with the 
+#' same length as the input \code{x}.
+#' @examples
+#' \dontrun{
+#' call_and_name(is.finite, c(1, Inf, NA))
+#' }
+#' @seealso \code{\link{cause}} and \code{\link{na}}.
+#' @export
+call_and_name <- function(fn, x, ...)
+{
+  y <- fn(x, ...)
+  if(!is_identical_to_true(length(y) == length(x)))
   {
-    stop("x is not a file connection.")
+    warning(
+      "Vector of names is different length to results.  Trying to resize."
+    )
+    length(x) <- length(y)
   }
-  summary(x)$description
+  dim(y) <- dim(x)
+  names(y) <- x
+  y
 }
 
 #' Get the dimensions of an object
