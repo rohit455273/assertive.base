@@ -1,4 +1,4 @@
-#' @rdname is_true
+#' @rdname Truth
 #' @export
 assert_all_are_false <- function(x)
 {                                                     
@@ -6,14 +6,14 @@ assert_all_are_false <- function(x)
   assert_engine(is_false, x, msg = msg)        
 }
 
-#' @rdname is_true
+#' @rdname Truth
 #' @export
 assert_any_are_false <- function(x)
 {                                                     
   msg <- gettextf("The values of %s are never FALSE.", get_name_in_parent(x))
   assert_engine(is_false, x, msg = msg, what = "any")        
 }
-#' @rdname is_true
+#' @rdname Truth
 #' @export
 assert_all_are_na <- function(x)
 {                                                     
@@ -21,7 +21,7 @@ assert_all_are_na <- function(x)
   assert_engine(is_na, x, msg = msg)        
 }
 
-#' @rdname is_true
+#' @rdname Truth
 #' @export
 assert_any_are_na <- function(x)
 {                                                     
@@ -29,7 +29,7 @@ assert_any_are_na <- function(x)
   assert_engine(is_na, x, msg = msg, what = "any")        
 }
 
-#' @rdname is_true
+#' @rdname Truth
 #' @export
 assert_all_are_true <- function(x)
 {                                                     
@@ -37,7 +37,7 @@ assert_all_are_true <- function(x)
   assert_engine(is_true, x, msg = msg)        
 }
 
-#' @rdname is_true
+#' @rdname Truth
 #' @export
 assert_any_are_true <- function(x)
 {                                                     
@@ -47,7 +47,7 @@ assert_any_are_true <- function(x)
 
 # Negations
 
-#' @rdname is_true
+#' @rdname Truth
 #' @export
 assert_all_are_not_false <- function(x)
 {                                                      
@@ -55,7 +55,7 @@ assert_all_are_not_false <- function(x)
   assert_engine(is_not_false, x, msg = msg)
 }
 
-#' @rdname is_true
+#' @rdname Truth
 #' @export
 assert_any_are_not_false <- function(x)
 {                                                      
@@ -63,7 +63,7 @@ assert_any_are_not_false <- function(x)
   assert_engine(is_not_false, x, msg = msg, what = "any")
 }
 
-#' @rdname is_true
+#' @rdname Truth
 #' @export
 assert_all_are_not_na <- function(x)
 {                                                      
@@ -71,7 +71,7 @@ assert_all_are_not_na <- function(x)
   assert_engine(is_not_na, x, msg = msg)
 }
 
-#' @rdname is_true
+#' @rdname Truth
 #' @export
 assert_any_are_not_na <- function(x)
 {                                                      
@@ -79,7 +79,7 @@ assert_any_are_not_na <- function(x)
   assert_engine(is_not_na, x, msg = msg, what = "any")
 }
 
-#' @rdname is_true
+#' @rdname Truth
 #' @export
 assert_all_are_not_true <- function(x)
 {                                                      
@@ -87,7 +87,7 @@ assert_all_are_not_true <- function(x)
   assert_engine(is_not_true, x, msg = msg)
 }
 
-#' @rdname is_true
+#' @rdname Truth
 #' @export
 assert_any_are_not_true <- function(x)
 {                                                      

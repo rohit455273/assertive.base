@@ -1,4 +1,4 @@
-#' @rdname is_true
+#' @rdname Truth
 #' @export
 is_identical_to_false <- function(x, allow_attributes = FALSE, 
   .xname = get_name_in_parent(x))
@@ -14,7 +14,7 @@ is_identical_to_false <- function(x, allow_attributes = FALSE,
   TRUE
 }                  
 
-#' @rdname is_true
+#' @rdname Truth
 #' @export
 is_identical_to_na <- function(x, allow_attributes = FALSE, 
   .xname = get_name_in_parent(x))
@@ -34,7 +34,7 @@ is_identical_to_na <- function(x, allow_attributes = FALSE,
   TRUE
 }
 
-#' @rdname is_true
+#' @rdname Truth
 #' @export
 is_identical_to_true <- function(x, allow_attributes = FALSE, 
                                  .xname = get_name_in_parent(x))

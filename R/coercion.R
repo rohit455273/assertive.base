@@ -1,4 +1,4 @@
-#' Alternative version of is.
+#' Alternative version of is
 #' 
 #' If a function named \code{is.class} exists, call \code{is.class(x)}.
 #' If not, call \code{is(x, class)}.
@@ -52,7 +52,7 @@ is2 <- function(x, class, .xname = get_name_in_parent(x))
   TRUE
 }
 
-#' Coerce variable to a different class.
+#' Coerce variable to a different class
 #'
 #' Coerce the input to a different class, with a warning.  More reliable then 
 #' \code{\link[methods]{as}}, and supports coercion to multiple classes.

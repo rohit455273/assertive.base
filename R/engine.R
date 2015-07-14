@@ -1,4 +1,4 @@
-#' Throws an error if a condition isn't met.
+#' Throws an error if a condition isn't met
 #'
 #' The workhorse of the package.  If a condition isn't met, then an error
 #' is thrown.  This function is exported for use by package developers so

@@ -1,4 +1,4 @@
-#' Get or set the \code{"cause"} attribute.
+#' Get or set the \code{"cause"} attribute
 #'
 #' Gets or sets the \code{"cause"} (of failure) attribute of a variable.
 #'
