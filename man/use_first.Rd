@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{use_first}
 \alias{use_first}
-\title{Only use the first element of a vector.}
+\title{Only use the first element of a vector}
 \usage{
 use_first(x, indexer = c("[[", "["))
 }

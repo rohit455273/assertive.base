@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{strip_attributes}
 \alias{strip_attributes}
-\title{Strip all attributes from a variable.}
+\title{Strip all attributes from a variable}
 \usage{
 strip_attributes(x)
 }

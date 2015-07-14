@@ -7,7 +7,7 @@
 \usage{
 \method{print}{scalar_with_cause}(x, ...)
 
-\method{print}{vector_with_cause}(x, na_ignore = FALSE, n_to_show = 6, ...)
+\method{print}{vector_with_cause}(x, na_ignore = FALSE, n_to_show = 10, ...)
 }
 \arguments{
 \item{x}{an object of class \code{scalar_with_cause} or

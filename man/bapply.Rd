@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{bapply}
 \alias{bapply}
-\title{Wrapper to vapply that returns booleans.}
+\title{Wrapper to vapply that returns booleans}
 \usage{
 bapply(x, predicate, ...)
 }

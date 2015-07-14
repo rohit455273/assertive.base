@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{get_name_in_parent}
 \alias{get_name_in_parent}
-\title{Get the name of a variable in the parent frame.}
+\title{Get the name of a variable in the parent frame}
 \usage{
 get_name_in_parent(x)
 }

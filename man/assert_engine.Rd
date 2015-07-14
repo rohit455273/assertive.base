@@ -2,7 +2,7 @@
 % Please edit documentation in R/engine.R
 \name{assert_engine}
 \alias{assert_engine}
-\title{Throws an error if a condition isn't met.}
+\title{Throws an error if a condition isn't met}
 \usage{
 assert_engine(predicate, ..., msg, what = c("all", "any"),
   na_ignore = FALSE)

@@ -3,7 +3,7 @@
 \name{cause}
 \alias{cause}
 \alias{cause<-}
-\title{Get or set the \code{"cause"} attribute.}
+\title{Get or set the \code{"cause"} attribute}
 \usage{
 cause(x)
 
