@@ -25,7 +25,7 @@
 \alias{is_not_na}
 \alias{is_not_true}
 \alias{is_true}
-\title{Is the input TRUE?}
+\title{Is the input TRUE/FALSE/NA?}
 \usage{
 assert_is_identical_to_false(x, allow_attributes = FALSE)
 
@@ -93,7 +93,7 @@ throw an error if the corresponding \code{is_*} function returns
 \code{FALSE}.
 }
 \description{
-Checks to see if the input is \code{TRUE}.
+Checks to see if the input is \code{TRUE},  \code{FALSE} or  \code{NA}.
 }
 \note{
 \code{is_identical_to_true} wraps the base function \code{isTRUE},

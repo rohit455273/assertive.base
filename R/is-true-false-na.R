@@ -73,9 +73,9 @@ is_not_true <- function(x)
   )
 }
 
-#' Is the input TRUE?
+#' Is the input TRUE/FALSE/NA?
 #' 
-#' Checks to see if the input is \code{TRUE}.
+#' Checks to see if the input is \code{TRUE},  \code{FALSE} or  \code{NA}.
 #'
 #' @param x Input to check.
 #' @param allow_attributes If \code{TRUE}, a scalar value of \code{TRUE}
