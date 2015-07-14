@@ -18,7 +18,7 @@ To install the development version, you first need the *devtools* package.
 install.packages("devtools")
 ```
 
-Then you can install the *assertive* package using
+Then you can install the *assertive.base* package using
 
 ```{r}
 library(devtools)
