@@ -41,6 +41,10 @@ assert_all_are_na(x)
 
 assert_any_are_na(x)
 
+assert_all_are_true(x)
+
+assert_any_are_true(x)
+
 assert_all_are_not_false(x)
 
 assert_any_are_not_false(x)
@@ -52,10 +56,6 @@ assert_any_are_not_na(x)
 assert_all_are_not_true(x)
 
 assert_any_are_not_true(x)
-
-assert_all_are_true(x)
-
-assert_any_are_true(x)
 
 is_identical_to_false(x, allow_attributes = FALSE,
   .xname = get_name_in_parent(x))
