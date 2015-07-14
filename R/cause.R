@@ -70,6 +70,7 @@ set_cause <- function(x, value)
 }
 
 #' @rdname print.vector_with_cause
+#' @method print scalar_with_cause
 #' @export
 print.scalar_with_cause <- function(x, ...)
 {
@@ -94,6 +95,7 @@ print.scalar_with_cause <- function(x, ...)
 #' @param n_to_show A natural number.  The maximum number of failures 
 #' to show. 
 #' @param ... Currently unused.
+#' @method print vector_with_cause
 #' @export
 print.vector_with_cause <- function(x, na_ignore = FALSE, n_to_show = 10, ...)
 {

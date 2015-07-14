@@ -133,6 +133,7 @@ get_name_in_parent <- function(x)
 #'   list(foo = 1, bar = 2, baz = 3), 
 #'   list(foo = 4, baz = 5, quux = 6)
 #' )
+#' @method merge list
 #' @export
 merge.list <- function(x, y, ...)
 {
