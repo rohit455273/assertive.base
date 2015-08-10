@@ -76,7 +76,7 @@ print.scalar_with_cause <- function(x, ...)
 {
   if(length(x) != 1L)
   {
-    stop("Bug in assertive; x should have length 1.") 
+    stop("x is malformed; it should have length 1.", domain = NA) 
   }
   print(x[1])
   cat("Cause of failure: ", cause(x), "\n")
@@ -133,13 +133,11 @@ print.vector_with_cause <- function(x, na_ignore = FALSE, n_to_show = 10, ...)
   {
     gettextf(" (showing the first %d)", nrow(failures))
   } else ""
-  msg_n_failures <- gettextf(
-    "There %s %d %s%s:\n",
-    ngettext(n, "was", "were"),
+  msg_n_failures <- ngettext(
     n,
-    ngettext(n, "failure", "failures"),
-    msg_showing_first
+    "There was %d failure%s:\n",
+    "There were %d failures%s:\n"
   )
-  cat(msg_n_failures)
+  cat(sprintf(msg_n_failures, n, msg_showing_first))
   print(failures)
 }

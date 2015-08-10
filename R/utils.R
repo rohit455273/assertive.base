@@ -26,7 +26,9 @@ bapply <- function(x, predicate, ...)
 #' @return The result of \code{fn(x, ...)}, with names given by the
 #' argument \code{x}.
 #' @note The function, \code{fn}, should return an object with the 
-#' same length as the input \code{x}.
+#' same length as the input \code{x}.  For speed and simplicity, this
+#' isn't checked; it is up to the developer of the assertion to make
+#' sure that this condition holds.
 #' @examples
 #' \dontrun{
 #' call_and_name(is.finite, c(1, Inf, NA))
@@ -36,13 +38,6 @@ bapply <- function(x, predicate, ...)
 call_and_name <- function(fn, x, ...)
 {
   y <- fn(x, ...)
-  if(!is_identical_to_true(length(y) == length(x)))
-  {
-    warning(
-      "Vector of names is different length to results.  Trying to resize."
-    )
-    length(x) <- length(y)
-  }
   dim(y) <- dim(x)
   names(y) <- x
   y
