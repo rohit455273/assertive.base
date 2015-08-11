@@ -1,7 +1,7 @@
 # assertive.base
 
 A minimal set of predicates and assertions used by *[assertive](https://bitbucket.org/richierocks/assertive)*, 
-for package developers who want to include run-time testing features in their own packages.n.  Most of the documentation is on the assertive page.  End-users will usually want to use *assertive* directly.
+for package developers who want to include run-time testing features in their own packages.  Most of the documentation is on the assertive page.  End-users will usually want to use *assertive* directly.
 
 
 ### Installation
