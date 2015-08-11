@@ -11,6 +11,8 @@ Description: A minimal set of predicates and assertions used by the assertive
     package.  This is mainly for use by other package developers who want to
     include run-time testing features in their own packages.  End-users will
     usually want to use assertive directly.
+URL: https://bitbucket.org/richierocks/assertive.base
+BugReports: https://bitbucket.org/richierocks/assertive.base/issues
 Depends:
     R (>= 3.0.0)
 Imports:
