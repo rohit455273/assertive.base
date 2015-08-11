@@ -24,3 +24,64 @@ Then you can install the *assertive.base* package using
 library(devtools)
 install_bitbucket("richierocks/assertive.base")
 ```
+
+### Predicates
+
+There are six functions that accept (expressions resolving to) logical vectors,
+and return logical vectors:
+
+`is_true` returns a logical vector that is `TRUE` when the input is `TRUE`
+(`x & !is.na(x)`).
+
+`is_false` returns a logical vector that is `TRUE` when the input is `FALSE`
+(`!x & !is.na(x)`).
+
+`is_na` returns a logical vector that is `TRUE` when the input is `NA`
+(a wrapper to `is.na(x)`).
+
+`is_not_true` returns a logical vector that is `TRUE` when the input is `FALSE` 
+or `NA` (`x | is.na(x)`).
+
+`is_not_false` returns a logical vector that is `TRUE` when the input is `TRUE` 
+or `NA` (`!x | is.na(x)`).
+
+`is_not_na` returns a logical vector that is `TRUE` when the input is `TRUE` 
+or `FALSE` (`!is.na(x)`).
+
+There are three functions that return sinlge logical values:
+
+`is_identical_to_true` returns `TRUE` is effectively `identical(x, TRUE)` (like 
+`isTRUE`), but it lets you choose whether or not attributes are allowed on `x`.
+
+`is_identical_to_false` and `is_identical_to_na` works similarly with `FALSE` 
+and `NA`.
+
+### Assertions
+
+Predicates that return a vector have two corresponding assertions.  For example,
+`is_true` has `assert_all_are_true` and `assert_any_are_true`.
+
+Predicates returning a single logical value have one corresponding assertion.
+For example, `is_identical_to_true` has `assert_is_identical_to_true`.
+
+### Utilities
+
+`use_first` takes the first value of a vector, warning you if it one longer than 
+length one.
+
+`coerce_to` is a wrapper to `as`, changing an object's type with a warning.
+
+`get_name_in_parent` gets the name of a variable in the parent environment 
+(stopping you have to remember `deparse(substitute())` arcana).
+
+`strip_attributes` strips the attributes from an object.
+
+`merge_dots_with_list` merges the contents of `...` with a list argument, to 
+allow users to pass arguments to your function in either form.
+
+`dont_stop` runs code without stopping at errors, which is useful for 
+demonstrating errors in examples.
+
+`parenthesise` wraps a string in parentheses.
+
+`bapply` is a wraps `vapply`, always returning a logical vector.
