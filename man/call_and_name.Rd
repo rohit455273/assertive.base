@@ -22,7 +22,9 @@ Calls a function, and names the result with the first argument.
 }
 \note{
 The function, \code{fn}, should return an object with the
-same length as the input \code{x}.
+same length as the input \code{x}.  For speed and simplicity, this
+isn't checked; it is up to the developer of the assertion to make
+sure that this condition holds.
 }
 \examples{
 \dontrun{
