@@ -39,6 +39,8 @@ and return logical vectors:
 `is_na` returns a logical vector that is `TRUE` when the input is `NA`
 (a wrapper to `is.na(x)`).
 
+...and their negations:
+
 `is_not_true` returns a logical vector that is `TRUE` when the input is `FALSE` 
 or `NA` (`x | is.na(x)`).
 
@@ -48,7 +50,7 @@ or `NA` (`!x | is.na(x)`).
 `is_not_na` returns a logical vector that is `TRUE` when the input is `TRUE` 
 or `FALSE` (`!is.na(x)`).
 
-There are three functions that return sinlge logical values:
+There are three functions that return single logical values:
 
 `is_identical_to_true` returns `TRUE` is effectively `identical(x, TRUE)` (like 
 `isTRUE`), but it lets you choose whether or not attributes are allowed on `x`.
