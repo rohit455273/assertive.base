@@ -1,0 +1,93 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: assertive.base 0.0-2\n"
+"Report-Msgid-Bugs-To: https://bitbucket.org/richierocks/assertive.base\n"
+"POT-Creation-Date: 2015-08-11 13:37\n"
+"PO-Revision-Date: 2015-08-12 13:01+0300\n"
+"Last-Translator: Sunkyu Choi <szc2010@qatar-med.cornell.edu>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ko\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Team: \n"
+"X-Generator: Poedit 1.8.4\n"
+
+msgid "The values of %s are not all FALSE."
+msgstr "%s의 값들이 모두 FALSE는 아닙니다."
+
+msgid "The values of %s are never FALSE."
+msgstr "%s의 값들은 절대 FALSE가 아닙니다."
+
+msgid "The values of %s are not all NA."
+msgstr "%s의 값들이 모두 NA는 아닙니다."
+
+msgid "The values of %s are never NA."
+msgstr "%s의 값들은 절대 NA가 아닙니다."
+
+msgid "The values of %s are not all TRUE."
+msgstr "%s의 값들이 모두 TRUE는 아닙니다."
+
+msgid "The values of %s are never TRUE."
+msgstr "%s의 값들은 절대 TRUE가 아닙니다."
+
+msgid "The values of %s are sometimes FALSE."
+msgstr "%s의 값들은 가끔 FALSE 입니다."
+
+msgid "The values of %s are all FALSE."
+msgstr "%s의 값들은  FALSE 입니다."
+
+msgid "The values of %s are sometimes NA."
+msgstr "%s의 값들은 가끔 NA 입니다."
+
+msgid "The values of %s are all NA."
+msgstr "%s의 값들은  NA입니다."
+
+msgid "The values of %s are sometimes TRUE."
+msgstr "%s의 값들은 가끔 TRUE 입니다."
+
+msgid "The values of %s are all TRUE."
+msgstr "%s의 값들은 모두 TRUE 입니다."
+
+msgid "The length of value should be 1 or the length of x (%d) but is %d."
+msgstr "값의 길이는 1 이거나 "
+
+msgid "(showing the first %d)"
+msgstr "첫번째 %d 보기"
+
+msgid "You must provide a class."
+msgstr "당신은 클래스를 제공해야 합니다."
+
+msgid "target_class should be a character vector."
+msgstr "타켓 클래스는 캐릭터 벡터이어야 합니다."
+
+msgid "Coercing %s to class %s."
+msgstr "%s를 클래스 %s로 강요."
+
+msgid "%s cannot be coerced to type %s."
+msgstr "%s는 타입 %s로 강요 받을 수 없습니다."
+
+msgid "%s cannot be coerced to any of these types: %s."
+msgstr "%s는 다른 어떤 타입들로 강요 받을 수 없습니다: %s."
+
+msgid "%s is not identical to FALSE."
+msgstr "%s는 FALSE와 같지 않습니다."
+
+msgid "%s is not identical to NA."
+msgstr "%s는 NA와 같지 않습니다."
+
+msgid "%s is not identical to TRUE."
+msgstr "%s는 TRUE와 같지 않습니다."
+
+msgid "Duplicated arguments: %s"
+msgstr "이중 인수: %s."
+
+msgid "%s has length 0."
+msgstr "%s는 0 길이를 갖습니다."
+
+msgid "Only the first value of %s will be used."
+msgstr "오직 첫번째 %s의 값만 사용 되어 질 것 입니다."
+
+msgid "There was %d failure%s:\n"
+msgid_plural "There were %d failures%s:\n"
+msgstr[0] "%d 실패 %s:\n"

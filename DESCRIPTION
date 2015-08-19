@@ -1,20 +1,32 @@
 Package: assertive.base
 Type: Package
 Title: A Lightweight Core of the 'assertive' Package
-Version: 0.0-1
-Date: 2015-07-14
-Author: Richard Cotton [aut, cre]
+Version: 0.0-2
+Date: 2015-08-10
+Author: Richard Cotton [aut, cre], 
+    Sunkyu Choi [trl], 
+    Ivanka Skakun [trl],
+    Gergely Daróczi [trl]
 Maintainer: Richard Cotton <richierocks@gmail.com>
-Authors@R: person("Richard", "Cotton", role = c("aut", "cre"), email =
-    "richierocks@gmail.com")
+Authors@R: c(person("Richard", "Cotton", role = c("aut", "cre"), email =
+    "richierocks@gmail.com"),
+    person("Sunkyu", "Choi", role = "trl", email =
+    "szc2010@qatar-med.cornell.edu"),
+    person("Ivanka", "Skakun", role = "trl", email =
+    "ivanka.skakun@gmail.com")),
+    person("Gergely", "Daróczi", role = "trl", email =
+    "daroczig@rapporter.net"))
 Description: A minimal set of predicates and assertions used by the assertive
     package.  This is mainly for use by other package developers who want to
     include run-time testing features in their own packages.  End-users will
     usually want to use assertive directly.
+URL: https://bitbucket.org/richierocks/assertive.base
+BugReports: https://bitbucket.org/richierocks/assertive.base/issues
 Depends:
     R (>= 3.0.0)
 Imports:
-    methods
+    methods,
+    utils
 Suggests:
     testthat,
     devtools
@@ -25,4 +37,5 @@ Roxygen: list(wrap = FALSE)
 Acknowledgments: Development of this package was partially funded by the
     Proteomics Core at Weill Cornell Medical College in Qatar
     <http://qatar-weill.cornell.edu>.  The Core is supported by 'Biomedical
-    Research Program' funds, a program funded by Qatar Foundation.
+    Research Program' funds, a program funded by Qatar Foundation. Ukranian 
+    translations were supported by www.coupofy.com.
