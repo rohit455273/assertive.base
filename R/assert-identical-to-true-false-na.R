@@ -6,6 +6,8 @@
 #' @param allow_attributes If \code{TRUE}, a scalar value of \code{TRUE}
 #' with attributes is allowed.
 #' @param .xname Not intended to be used directly.
+#' @param severity How severe should the consequences of the assertion be?  
+#' Either \code{"stop"}, \code{"warning"}, \code{"message"}, or \code{"none"}.
 #' @note \code{is_identical_to_true} wraps the base function \code{isTRUE}, 
 #' providing more information on failure.  Likewise, 
 #' \code{is_identical_to_false} checks that the input is identical to FALSE.  If
@@ -65,36 +67,42 @@ NULL
 
 #' @rdname Truth
 #' @export
-assert_is_identical_to_false <- function(x, allow_attributes = FALSE)
+assert_is_identical_to_false <- function(x, allow_attributes = FALSE, 
+  severity = getOption("assertive.severity", "stop"))
 {                                                  
   assert_engine(
     is_identical_to_false,
     x, 
     allow_attributes = allow_attributes, 
-    .xname = get_name_in_parent(x)
+    .xname = get_name_in_parent(x),
+    severity = severity
   )      
 }
 
 #' @rdname Truth
 #' @export
-assert_is_identical_to_na <- function(x, allow_attributes = FALSE)
+assert_is_identical_to_na <- function(x, allow_attributes = FALSE, 
+  severity = getOption("assertive.severity", "stop"))
 {                                                  
   assert_engine(
     is_identical_to_na,
     x,
     allow_attributes = allow_attributes, 
-    .xname = get_name_in_parent(x)
+    .xname = get_name_in_parent(x),
+    severity = severity
   )    
 }
 
 #' @rdname Truth
 #' @export
-assert_is_identical_to_true <- function(x, allow_attributes = FALSE)
+assert_is_identical_to_true <- function(x, allow_attributes = FALSE, 
+  severity = getOption("assertive.severity", "stop"))
 {                                                  
   assert_engine(
     is_identical_to_true,
     x,
     allow_attributes = allow_attributes, 
-    .xname = get_name_in_parent(x)
+    .xname = get_name_in_parent(x),
+    severity = severity
   )    
 }
