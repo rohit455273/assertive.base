@@ -5,7 +5,7 @@
 \title{Throws an error if a condition isn't met}
 \usage{
 assert_engine(predicate, ..., msg, what = c("all", "any"),
-  na_ignore = FALSE)
+  na_ignore = FALSE, severity = c("stop", "warning", "message", "none"))
 }
 \arguments{
 \item{predicate}{Function that returns a logical value (possibly
@@ -22,6 +22,9 @@ single value.}
 cause an error; otherwise they do not.  Like \code{na.rm} in many
 stats package functions, except that the position of the failing
 values does not change.}
+
+\item{severity}{How severe should the consequences of the assertion be?
+Either \code{"stop"}, \code{"warning"}, \code{"message"}, or \code{"none"}.}
 }
 \value{
 \code{FALSE} with the attribute \code{message}, as provided

@@ -28,35 +28,40 @@
 \alias{is_true}
 \title{Is the input TRUE/FALSE/NA?}
 \usage{
-assert_is_identical_to_false(x, allow_attributes = FALSE)
+assert_is_identical_to_false(x, allow_attributes = FALSE,
+  severity = getOption("assertive.severity", "stop"))
 
-assert_is_identical_to_na(x, allow_attributes = FALSE)
+assert_is_identical_to_na(x, allow_attributes = FALSE,
+  severity = getOption("assertive.severity", "stop"))
 
-assert_is_identical_to_true(x, allow_attributes = FALSE)
+assert_is_identical_to_true(x, allow_attributes = FALSE,
+  severity = getOption("assertive.severity", "stop"))
 
-assert_all_are_false(x)
+assert_all_are_false(x, severity = getOption("assertive.severity", "stop"))
 
-assert_any_are_false(x)
+assert_any_are_false(x, severity = getOption("assertive.severity", "stop"))
 
-assert_all_are_na(x)
+assert_all_are_na(x, severity = getOption("assertive.severity", "stop"))
 
-assert_any_are_na(x)
+assert_any_are_na(x, severity = getOption("assertive.severity", "stop"))
 
-assert_all_are_true(x)
+assert_all_are_true(x, severity = getOption("assertive.severity", "stop"))
 
-assert_any_are_true(x)
+assert_any_are_true(x, severity = getOption("assertive.severity", "stop"))
 
-assert_all_are_not_false(x)
+assert_all_are_not_false(x, severity = getOption("assertive.severity",
+  "stop"))
 
-assert_any_are_not_false(x)
+assert_any_are_not_false(x, severity = getOption("assertive.severity",
+  "stop"))
 
-assert_all_are_not_na(x)
+assert_all_are_not_na(x, severity = getOption("assertive.severity", "stop"))
 
-assert_any_are_not_na(x)
+assert_any_are_not_na(x, severity = getOption("assertive.severity", "stop"))
 
-assert_all_are_not_true(x)
+assert_all_are_not_true(x, severity = getOption("assertive.severity", "stop"))
 
-assert_any_are_not_true(x)
+assert_any_are_not_true(x, severity = getOption("assertive.severity", "stop"))
 
 is_identical_to_false(x, allow_attributes = FALSE,
   .xname = get_name_in_parent(x))
@@ -84,6 +89,9 @@ is_true(x)
 
 \item{allow_attributes}{If \code{TRUE}, a scalar value of \code{TRUE}
 with attributes is allowed.}
+
+\item{severity}{How severe should the consequences of the assertion be?
+Either \code{"stop"}, \code{"warning"}, \code{"message"}, or \code{"none"}.}
 
 \item{.xname}{Not intended to be used directly.}
 }

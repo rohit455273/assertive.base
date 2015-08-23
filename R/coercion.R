@@ -8,7 +8,7 @@
 #' @return \code{TRUE} if x belongs to the class and \code{FALSE} 
 #' otherwise. 
 #' @seealso \code{\link[methods]{is}}, and 
-#' \code{\link[assertive]{assert_is_all_of}} for the corresponding assert fns.
+#' \code{\link[assertive.types]{assert_is_all_of}} for the corresponding assert fns.
 #' @examples
 #' is2(1:5, "character")
 #' is2(matrix(1:5), "character")

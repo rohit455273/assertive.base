@@ -14,14 +14,16 @@
 #' cause an error; otherwise they do not.  Like \code{na.rm} in many
 #' stats package functions, except that the position of the failing
 #' values does not change.
+#' @param severity How severe should the consequences of the assertion be?  
+#' Either \code{"stop"}, \code{"warning"}, \code{"message"}, or \code{"none"}.
 #' @return \code{FALSE} with the attribute \code{message}, as provided
 #' in the input.
 #' @note Missing values are considered as \code{FALSE} for the purposes of
 #' whether or not an error is thrown.
 #' @export
-assert_engine <- function(predicate, ..., msg, what = c("all", "any"), na_ignore = FALSE, severity = severity)
+assert_engine <- function(predicate, ..., msg, what = c("all", "any"), na_ignore = FALSE, severity = c("stop", "warning", "message", "none"))
 {
-  handler_type <- match.arg(severity, c("stop", "warning", "message", "none"))
+  handler_type <- match.arg(severity)
   dots <- list(...)
   return_value <- if(length(dots) > 0) dots[[1]] else NULL
   if(handler_type == "none") 

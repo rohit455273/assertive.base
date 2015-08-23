@@ -28,6 +28,6 @@ is2(1:5, c("character", "list", "numeric"))
 }
 \seealso{
 \code{\link[methods]{is}}, and
-\code{\link[assertive]{assert_is_all_of}} for the corresponding assert fns.
+\code{\link[assertive.types]{assert_is_all_of}} for the corresponding assert fns.
 }
 
