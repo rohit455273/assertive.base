@@ -99,8 +99,12 @@ get_name_in_parent <- function(x)
 #' Merges two lists, taking duplicated elements from the first list.
 #' @param x A list.
 #' @param y A list.
+#' @param warn_on_dupes \code{TRUE} or \code{FALSE}.  Should a warning be given 
+#' if both \code{x} and \code{y} have elements with the same name.  See note.
 #' @param ... Ignored.
 #' @return A list, combining elements from \code{x} and \code{y}.
+#' @note In the event of elements that are duplicated between \code{x} and 
+#' \code{y}, the versions from \code{x} are used.
 #' @seealso \code{\link{merge_dots_with_list}}, \code{\link[base]{merge}}
 #' @examples
 #' merge(
@@ -109,7 +113,7 @@ get_name_in_parent <- function(x)
 #' )
 #' @method merge list
 #' @export
-merge.list <- function(x, y, ...)
+merge.list <- function(x, y, warn_on_dupes = TRUE, ...)
 {
   if(is.null(y)) return(x)
   y <- coerce_to(y, "list")
@@ -117,12 +121,13 @@ merge.list <- function(x, y, ...)
   all_values <- c(x, y)
   if(anyDuplicated(all_names) > 0)
   {
-    warning(
-      sprintf(
-        "Duplicated arguments: %s", 
+    if(warn_on_dupes)
+    {
+      warning(
+        "Duplicated arguments: ", 
         toString(all_names[duplicated(all_names)])
       )
-    )
+    }
     all_values <- all_values[!duplicated(all_names)]
   }
   all_values
