@@ -76,7 +76,7 @@ assert_is_identical_to_false <- function(x, allow_attributes = FALSE,
     allow_attributes = allow_attributes, 
     .xname = get_name_in_parent(x),
     severity = severity
-  )      
+  )
 }
 
 #' @rdname Truth
@@ -90,7 +90,7 @@ assert_is_identical_to_na <- function(x, allow_attributes = FALSE,
     allow_attributes = allow_attributes, 
     .xname = get_name_in_parent(x),
     severity = severity
-  )    
+  )
 }
 
 #' @rdname Truth
@@ -104,5 +104,5 @@ assert_is_identical_to_true <- function(x, allow_attributes = FALSE,
     allow_attributes = allow_attributes, 
     .xname = get_name_in_parent(x),
     severity = severity
-  )    
+  )
 }

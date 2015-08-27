@@ -4,12 +4,15 @@
 \alias{merge.list}
 \title{Merge two lists}
 \usage{
-\method{merge}{list}(x, y, ...)
+\method{merge}{list}(x, y, warn_on_dupes = TRUE, ...)
 }
 \arguments{
 \item{x}{A list.}
 
 \item{y}{A list.}
+
+\item{warn_on_dupes}{\code{TRUE} or \code{FALSE}.  Should a warning be given
+if both \code{x} and \code{y} have elements with the same name.  See note.}
 
 \item{...}{Ignored.}
 }
@@ -18,6 +21,10 @@ A list, combining elements from \code{x} and \code{y}.
 }
 \description{
 Merges two lists, taking duplicated elements from the first list.
+}
+\note{
+In the event of elements that are duplicated between \code{x} and
+\code{y}, the versions from \code{x} are used.
 }
 \examples{
 merge(
