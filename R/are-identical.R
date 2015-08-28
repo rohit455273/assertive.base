@@ -1,4 +1,4 @@
-#' Are the inputs identical
+#' Are the inputs identical?
 #' 
 #' Checks if the inputs are identical.
 #' @param x An R object or expression.

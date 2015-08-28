@@ -6,7 +6,7 @@
 \alias{assert_all_are_identical_legacy}
 \alias{assert_any_are_identical_legacy}
 \alias{assert_are_identical}
-\title{Are the inputs identical}
+\title{Are the inputs identical?}
 \usage{
 are_identical(x, y, .xname = get_name_in_parent(x),
   .yname = get_name_in_parent(y))
