@@ -10,7 +10,8 @@ Author: Richard Cotton [aut, cre],
     Anton Antonov [trl],
     Hisham Ben Hamidane [trl],
     Anja Billing [trl],
-    Aditya Bhagwat [trl]
+    Aditya Bhagwat [trl],
+    Rasmus Bååth [trl]
 Maintainer: Richard Cotton <richierocks@gmail.com>
 Authors@R: c(person("Richard", "Cotton", role = c("aut", "cre"), email =
     "richierocks@gmail.com"),
@@ -27,7 +28,9 @@ Authors@R: c(person("Richard", "Cotton", role = c("aut", "cre"), email =
     person("Anja", "Billing", role = "trl", email =
     "anb2061@qatar-med.cornell.edu"),
     person("Aditya", "Bhagwat", role = "trl", email =
-    "bhagwataditya@gmail.com"))
+    "bhagwataditya@gmail.com"),
+    person("Rasmus", "Bååth", role = "trl", email =
+    "rasmus.baath@lucs.lu.se"))
 Description: A minimal set of predicates and assertions used by the assertive
     package.  This is mainly for use by other package developers who want to
     include run-time testing features in their own packages.  End-users will
