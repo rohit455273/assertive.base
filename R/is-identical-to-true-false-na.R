@@ -9,7 +9,12 @@ is_identical_to_false <- function(x, allow_attributes = FALSE,
   }
   if(!identical(FALSE, x)) 
   {
-    return(false(gettextf("%s is not identical to FALSE.", .xname)))
+    msg <- gettextf(
+      "%s is not identical to FALSE.", 
+      .xname, 
+      domain = "R-assertive.base"
+    )
+    return(false(msg))
   }
   TRUE
 }                  
@@ -29,7 +34,12 @@ is_identical_to_na <- function(x, allow_attributes = FALSE,
      !identical(NA_integer_, x) && 
      !identical(NA_complex_, x))
   {
-    return(false(gettextf("%s is not identical to NA.", .xname)))
+    msg <- gettextf(
+      "%s is not identical to NA.", 
+      .xname, 
+      domain = "R-assertive.base"
+    )
+    return(false(msg))
   }
   TRUE
 }
@@ -37,7 +47,7 @@ is_identical_to_na <- function(x, allow_attributes = FALSE,
 #' @rdname Truth
 #' @export
 is_identical_to_true <- function(x, allow_attributes = FALSE, 
-                                 .xname = get_name_in_parent(x))
+  .xname = get_name_in_parent(x))
 {
   if(allow_attributes) 
   {
@@ -45,7 +55,12 @@ is_identical_to_true <- function(x, allow_attributes = FALSE,
   }
   if(!identical(TRUE, x))
   {
-    return(false(gettextf("%s is not identical to TRUE.", .xname)))
+    msg <- gettextf(
+      "%s is not identical to TRUE.", 
+      .xname, 
+      domain = "R-assertive.base"
+    )
+    return(false(msg))
   }
   TRUE
 }

@@ -131,7 +131,14 @@ print.vector_with_cause <- function(x, na_ignore = FALSE, n_to_show = 10, ...)
   # creates all the translation strings
   msg_showing_first <- if(nrow(failures) < n) 
   {
-    gettextf(" (showing the first %d)", nrow(failures))
+    paste0(
+      " ", 
+      gettextf(
+        "(showing the first %d)", 
+        nrow(failures), 
+        domain = "R-assertive.base"
+      )
+    )
   } else ""
   msg_n_failures <- ngettext(
     n,
