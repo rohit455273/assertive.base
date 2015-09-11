@@ -1,6 +1,6 @@
 #' @rdname are_identical
 #' @export
-assert_are_identical <- function(x, y, 
+assert_are_identical <- function(x, y, allow_attributes = FALSE, 
   severity = getOption("assertive.severity", "stop"))
 {
     assert_engine(

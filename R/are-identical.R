@@ -3,8 +3,10 @@
 #' Checks if the inputs are identical.
 #' @param x An R object or expression.
 #' @param y Another R object or expression.
-#' @param ... Some R expressions
-#' @param l A list of R expressions.
+#' @param allow_attributes If \code{TRUE}, The attributes of \code{x} and 
+#' \code{y} are allowed to differ.
+#' @param ... Some R expressions, deprecated.
+#' @param l A list of R expressions, deprecated.
 #' @param .xname Not intended to be used directly.
 #' @param .yname Not intended to be used directly.
 #' @param severity How severe should the consequences of the assertion be?  
@@ -24,9 +26,14 @@
 #' are_identical(c(1, -1), cos(c(0, pi)))
 #' assertive.base::dont_stop(assert_are_identical(c(1, 1), cos(c(0, pi))))
 #' @export
-are_identical <- function(x, y, .xname = get_name_in_parent(x),
-  .yname = get_name_in_parent(y))
-{
+are_identical <- function(x, y, allow_attributes =FALSE,
+  .xname = get_name_in_parent(x), .yname = get_name_in_parent(y))
+{  
+  if(allow_attributes) 
+  {
+    x <- strip_attributes(x)
+    y <- strip_attributes(y)
+  }
   if(!identical(x, y))
   {
     return(
