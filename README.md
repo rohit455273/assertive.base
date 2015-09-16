@@ -61,7 +61,7 @@ There are four functions that return single logical values:
 `is_identical_to_false` and `is_identical_to_na` works similarly with `FALSE` 
 and `NA`.
 
-``are_identical` wraps `base::identical`, checking if two expressions return the 
+`are_identical` wraps `base::identical`, checking if two expressions return the 
 same thing.
 
 ### Assertions

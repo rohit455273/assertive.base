@@ -8,12 +8,13 @@
 \alias{assert_are_identical}
 \title{Are the inputs identical?}
 \usage{
-are_identical(x, y, .xname = get_name_in_parent(x),
-  .yname = get_name_in_parent(y))
+are_identical(x, y, allow_attributes = FALSE,
+  .xname = get_name_in_parent(x), .yname = get_name_in_parent(y))
 
 are_identical_legacy(..., l = list())
 
-assert_are_identical(x, y, severity = getOption("assertive.severity", "stop"))
+assert_are_identical(x, y, allow_attributes = FALSE,
+  severity = getOption("assertive.severity", "stop"))
 
 assert_all_are_identical_legacy(..., l = list())
 
@@ -24,13 +25,16 @@ assert_any_are_identical_legacy(..., l = list())
 
 \item{y}{Another R object or expression.}
 
+\item{allow_attributes}{If \code{TRUE}, The attributes of \code{x} and
+\code{y} are allowed to differ.}
+
 \item{.xname}{Not intended to be used directly.}
 
 \item{.yname}{Not intended to be used directly.}
 
-\item{...}{Some R expressions}
+\item{...}{Some R expressions, deprecated.}
 
-\item{l}{A list of R expressions.}
+\item{l}{A list of R expressions, deprecated.}
 
 \item{severity}{How severe should the consequences of the assertion be?
 Either \code{"stop"}, \code{"warning"}, \code{"message"}, or \code{"none"}.}
