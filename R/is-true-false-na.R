@@ -2,7 +2,7 @@
 #' @export
 is_false <- function(x)
 {
-  x <- coerce_to(x, "logical")
+  x <- coerce_to(x, "logical", get_name_in_parent(x))
   call_and_name(
     function(x) 
     {
@@ -17,7 +17,11 @@ is_false <- function(x)
 #' @export
 is_na <- function(x)
 {
-  # Do not coerce_to(x, "logical"); this breaks, e.g., character vectors
+  # coerce_to(x, "logical") breaks character vectors, e.g., "NA" converted to NA
+  if(!is.character(x))
+  {
+    x <- coerce_to(x, "logical", get_name_in_parent(x))
+  }
   call_and_name(
     function(x)
     {
@@ -32,7 +36,11 @@ is_na <- function(x)
 #' @export
 is_not_na <- function(x)
 {
-  # Do not coerce_to(x, "logical"); this breaks, e.g., character vectors
+  # coerce_to(x, "logical") breaks character vectors, e.g., "NA" converted to NA
+  if(!is.character(x))
+  {
+    x <- coerce_to(x, "logical", get_name_in_parent(x))
+  }
   call_and_name(
     function(x)
     {
@@ -47,7 +55,7 @@ is_not_na <- function(x)
 #' @export
 is_not_false <- function(x)
 {
-  x <- coerce_to(x, "logical")
+  x <- coerce_to(x, "logical", get_name_in_parent(x))
   call_and_name(
     function(x)
     {
@@ -62,7 +70,7 @@ is_not_false <- function(x)
 #' @export
 is_not_true <- function(x)
 {
-  x <- coerce_to(x, "logical")
+  x <- coerce_to(x, "logical", get_name_in_parent(x))
   call_and_name(
     function(x)
     {
@@ -77,7 +85,7 @@ is_not_true <- function(x)
 #' @export
 is_true <- function(x)
 {
-  x <- coerce_to(x, "logical")
+  x <- coerce_to(x, "logical", get_name_in_parent(x))
   call_and_name(
     function(x) 
     {
