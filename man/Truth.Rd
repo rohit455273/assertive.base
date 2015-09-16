@@ -85,7 +85,7 @@ is_not_true(x)
 is_true(x)
 }
 \arguments{
-\item{x}{Input to check.}
+\item{x}{Input to check.  See note.}
 
 \item{allow_attributes}{If \code{TRUE}, a scalar value of \code{TRUE}
 with attributes is allowed.}
@@ -112,8 +112,21 @@ providing more information on failure.  Likewise,
 attributes is allowed. \code{is_true} and \code{is_false} are vectorized,
 returning \code{TRUE} when the inputs are \code{TRUE} and \code{FALSE}
 respectively.
-Note that in version 0.1-4 and prior, \code{is_identical_to_true/false} was
-named \code{is_true/false} and the vectorized versions were not present.
+
+The \code{x} argument will be coerced to be a logical vector if it isn't
+already.  This means that \code{is_na} differs in behaviour from
+\code{base::is.na} for list and data frame inputs.  To replicate the
+behaviour of \code{is.na}, try \code{is_na(unlist(x))} or use an \code{apply}
+function to loop over columns or elements of \code{x}.
+
+There is one important exception to the above coercion rule.  Character
+vector inputs to \code{is_na} and \code{is_not_na} are not coerced to
+logical vectors, since that converts the string \code{"NA"} to a missing
+value, thus giving an incorrect answer.
+
+Note that in assertive version 0.1-4 and prior,
+\code{is_identical_to_true/false} were named \code{is_true/false} and the
+vectorized versions were not present.
 }
 \examples{
 # Checks against logical values using base::identical
@@ -155,6 +168,13 @@ dont_stop(assert_is_identical_to_na(structure(NA, class = "nanana")))
 dont_stop(assert_all_are_true(x))
 dont_stop(assert_all_are_false(x))
 dont_stop(assert_all_are_na(x))
+
+# base::is.na has non-standard behaviour for data.frames and lists.
+# is_na and is_not_na coerce to logical vectors (except character input).
+# unlist the input or use an apply function.
+d <- data.frame(x = c(TRUE, FALSE, NA), y = c(0, NA, 2), z = c("a", "NA", NA))
+is.na(d)
+is_na(unlist(d))
 }
 \seealso{
 \code{\link[base]{isTRUE}}.
