@@ -116,7 +116,7 @@ get_name_in_parent <- function(x)
 merge.list <- function(x, y, warn_on_dupes = TRUE, ...)
 {
   if(is.null(y)) return(x)
-  y <- coerce_to(y, "list")
+  y <- coerce_to(y, "list", get_name_in_parent(y))
   all_names <- c(names(x), names(y))
   all_values <- c(x, y)
   if(anyDuplicated(all_names) > 0)
@@ -159,7 +159,7 @@ merge.NULL <- function(x, y, ...)
 merge_dots_with_list <- function(..., l = list())
 {
   dots <- list(...)
-  l <- coerce_to(l, "list")
+  l <- coerce_to(l, "list", get_name_in_parent(l))
   merge(dots, l)
 }
 
@@ -193,7 +193,7 @@ parenthesize <- function(x,
   type = c("round_brackets", "square_brackets", "curly_brackets", "angle_brackets", "chevrons", "hyphens", "en_dashes", "em_dashes", "commas")) 
 {
   type <- match.arg(type)
-  x <- coerce_to(x, "character")
+  x <- coerce_to(x, "character", get_name_in_parent(x))
   before <- switch(
     type,
     round_brackets  = "(",
