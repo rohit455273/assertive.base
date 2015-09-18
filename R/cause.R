@@ -18,7 +18,12 @@
 #' @export
 cause <- function(x)
 {
-  attr(x, "cause")
+  y <- attr(x, "cause")
+  if(is.null(y))
+  {
+    return(noquote(character(length(x))))
+  }
+  y
 }
 
 #' @rdname cause
