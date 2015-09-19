@@ -71,9 +71,9 @@ give_feedback <- function(handler_type, msg)
   )
   simple <- switch(
     handler_type,
-    stop = simpleError,
-    warning = simpleWarning,
-    message = simpleMessage
+    stop = assertionError,
+    warning = assertionWarning,
+    message = assertionMessage
   )
   # Throw error/warning/message
   caller <- sys.call(-3)
