@@ -13,7 +13,9 @@
 #' @importFrom utils capture.output
 print_and_capture <- function(x)
 {
-  paste(capture.output(print(x)), collapse = "\n")
+  # call to enc2utf8 is a workaround for
+  # https://bugs.r-project.org/bugzilla3/show_bug.cgi?id=16539
+  enc2utf8(paste(capture.output(print(x)), collapse = "\n"))
 }
 
 #' Truncate a string
