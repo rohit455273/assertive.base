@@ -57,7 +57,7 @@ assert_engine <- function(predicate, ..., msg, what = c("all", "any"), na_ignore
     if(!what(really_ok))
     {
       # Append first few failure values and positions to the error message.
-      msg <- paste(msg, print_and_capture(ok), sep = "\n")
+      msg <- paste(enc2utf8(msg), print_and_capture(ok), sep = "\n")
       give_feedback(handler_type, msg)
     }
   }
@@ -77,6 +77,8 @@ give_feedback <- function(handler_type, msg)
   )
   # Throw error/warning/message
   caller <- sys.call(-3)
+  # UTF-8 characters do not display correctly under Windows
+  # http://stackoverflow.com/q/32696241/134830
   handler(simple(msg, caller))
 }
 
