@@ -148,8 +148,9 @@ print.vector_with_cause <- function(x, na_ignore = FALSE, n_to_show = 10, ...)
   msg_n_failures <- ngettext(
     n,
     "There was %d failure%s:\n",
-    "There were %d failures%s:\n"
+    "There were %d failures%s:\n",
+    domain = "R-assertive.base"
   )
-  cat(sprintf(msg_n_failures, n, msg_showing_first))
+  cat(enc2utf8(sprintf(msg_n_failures, n, msg_showing_first)))
   print(failures)
 }
