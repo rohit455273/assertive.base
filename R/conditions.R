@@ -41,7 +41,7 @@ assertionError <- function(message, call = NULL)
 #' @export
 assertionWarning <- function(message, call = NULL)
 {
-  class <- c("assertionWarning", "assertionCondtion", "simpleWarning", "error", "condition")
+  class <- c("assertionWarning", "assertionCondtion", "simpleWarning", "warning", "condition")
   structure(
     list(
       message = as.character(message), 
