@@ -1,4 +1,5 @@
-0.0-2 Added Dutch, French, German, Hungarian, Korean, Russian, Swedish, Ukranian translations.
+0.0-2 Added Dutch, French, German, Greek, Hungarian, Korean, Russian, Swedish, 
+      Turkish, and Ukranian translations.
       Added assert_are_identical for comparing two objects.
       More README.
 0.0-1 Content extracted from assertive 0.2-7, and tidied.

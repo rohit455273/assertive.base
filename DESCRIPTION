@@ -2,7 +2,7 @@ Package: assertive.base
 Type: Package
 Title: A Lightweight Core of the 'assertive' Package
 Version: 0.0-2
-Date: 2015-09-03
+Date: 2015-10-05
 Author: Richard Cotton [aut, cre], 
     Sunkyu Choi [trl], 
     Ivanka Skakun [trl],
