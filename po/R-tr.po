@@ -52,7 +52,7 @@ msgid "The values of %s are all TRUE."
 msgstr "%s deǧerlerinin hepsi TRUE."
 
 msgid "The length of value should be 1 or the length of x (%d) but is %d."
-msgstr "Deǧerin uzunluǧu 1 veya x'in uzunluǧu (%d) olmali, ama uzunlugu %d."
+msgstr "value uzunluǧu 1 veya x'in uzunluǧu (%d) olmali, ama uzunlugu %d."
 
 msgid "(showing the first %d)"
 msgstr "(İlk %d'yi gösteriyor)"

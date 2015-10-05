@@ -52,7 +52,7 @@ msgid "The values of %s are all TRUE."
 msgstr "%s의 값들은 모두 TRUE 입니다."
 
 msgid "The length of value should be 1 or the length of x (%d) but is %d."
-msgstr "값의 길이는 1 이거나 그 길이의 x (%d)이지만 %d는 아니다."
+msgstr "value 의 길이는 1 또는 X (% d 개)의 길이 만 % d 개입니다해야합니다."
 
 msgid "(showing the first %d)"
 msgstr "첫번째 %d 보기."
@@ -61,7 +61,7 @@ msgid "You must provide a class."
 msgstr "당신은 클래스를 제공해야 합니다."
 
 msgid "target_class should be a character vector."
-msgstr "타켓 클래스는 캐릭터 벡터이어야 합니다."
+msgstr "target_class 는 캐릭터 벡터이어야 합니다."
 
 msgid "Coercing %s to class %s."
 msgstr "%s를 클래스 %s로 강요."

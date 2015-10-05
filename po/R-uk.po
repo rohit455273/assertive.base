@@ -52,7 +52,7 @@ msgid "The values of %s are all TRUE."
 msgstr "Значення %s всі ВІРНІ."
 
 msgid "The length of value should be 1 or the length of x (%d) but is %d."
-msgstr "Довжина значення має дорівнювати 1 або довжині x (%d)  але %d."
+msgstr "Довжина valueмає дорівнювати 1 або довжині x (%d)  але %d."
 
 msgid "(showing the first %d)"
 msgstr "(показувати перший %d)"

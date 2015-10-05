@@ -61,7 +61,7 @@ msgid "You must provide a class."
 msgstr "Du musst eine Klasse angeben."
 
 msgid "target_class should be a character vector."
-msgstr "Zielklasse sollte ein Charaktervektor sein."
+msgstr "target_class sollte ein Charaktervektor sein."
 
 msgid "Coercing %s to class %s."
 msgstr "Zwingen von %s in Klasse %s."

@@ -52,7 +52,7 @@ msgid "The values of %s are all TRUE."
 msgstr "Värdena av %s är alla TRUE."
 
 msgid "The length of value should be 1 or the length of x (%d) but is %d."
-msgstr "Värdets längd borde vara 1 eller längden av x (%d) men är %d"
+msgstr "value längd borde vara 1 eller längden av x (%d) men är %d."
 
 msgid "(showing the first %d)"
 msgstr "(visar de första %d)"
