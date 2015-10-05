@@ -18,6 +18,14 @@ Unknown packages ‘assertive.properties’, ‘assertive.types’ in Rd xrefs
 
 These other packages will be uploaded once assertive.base is successfully on CRAN.
 
+Building under R < 3.3.0, I see the NOTE
+
+* checking top-level files ... NOTE
+Non-standard file/directory found at top level:
+  'cran-comments.md'
+
+This file contains this information.
+
 ## Downstream dependencies
 
 A new version of the downstream assertive package will be uploaded once 
