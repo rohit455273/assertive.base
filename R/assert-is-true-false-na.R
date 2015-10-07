@@ -8,7 +8,13 @@ assert_all_are_false <- function(x,
     get_name_in_parent(x), 
     domain = "R-assertive.base"
   )
-  assert_engine(is_false, x, msg = msg, severity = severity)        
+  assert_engine(
+    is_false, 
+    x, 
+    msg = msg, 
+    .xname = get_name_in_parent(x), 
+    severity = severity
+  )        
 }
 
 #' @rdname Truth
@@ -21,7 +27,14 @@ assert_any_are_false <- function(x,
     get_name_in_parent(x), 
     domain = "R-assertive.base"
   )
-  assert_engine(is_false, x, msg = msg, what = "any", severity = severity)        
+  assert_engine(
+    is_false, 
+    x, 
+    msg = msg, 
+    what = "any",
+    .xname = get_name_in_parent(x), 
+    severity = severity
+  )       
 }
 #' @rdname Truth
 #' @export
@@ -33,7 +46,14 @@ assert_all_are_na <- function(x,
     get_name_in_parent(x), 
     domain = "R-assertive.base"
   )
-  assert_engine(is_na, x, msg = msg, severity = severity)        
+  assert_engine(
+    is_na, 
+    x, 
+    coerce_to_logical = FALSE, 
+    msg = msg, 
+    .xname = get_name_in_parent(x), 
+    severity = severity
+  )   
 }
 
 #' @rdname Truth
@@ -46,7 +66,15 @@ assert_any_are_na <- function(x,
     get_name_in_parent(x), 
     domain = "R-assertive.base"
   )
-  assert_engine(is_na, x, msg = msg, what = "any", severity = severity)        
+  assert_engine(
+    is_na, 
+    x, 
+    coerce_to_logical = FALSE, 
+    msg = msg, 
+    what = "any",
+    .xname = get_name_in_parent(x), 
+    severity = severity
+  )       
 }
 
 #' @rdname Truth
@@ -59,7 +87,13 @@ assert_all_are_true <- function(x,
     get_name_in_parent(x), 
     domain = "R-assertive.base"
   )
-  assert_engine(is_true, x, msg = msg, severity = severity)        
+  assert_engine(
+    is_true, 
+    x, 
+    msg = msg, 
+    .xname = get_name_in_parent(x), 
+    severity = severity
+  )
 }
 
 #' @rdname Truth
@@ -72,7 +106,14 @@ assert_any_are_true <- function(x,
     get_name_in_parent(x), 
     domain = "R-assertive.base"
   )
-  assert_engine(is_true, x, msg = msg, what = "any", severity = severity)        
+  assert_engine(
+    is_true, 
+    x, 
+    msg = msg, 
+    what = "any",
+    .xname = get_name_in_parent(x), 
+    severity = severity
+  )        
 }
 
 # Negations
@@ -87,7 +128,13 @@ assert_all_are_not_false <- function(x,
     get_name_in_parent(x), 
     domain = "R-assertive.base"
   )
-  assert_engine(is_not_false, x, msg = msg, severity = severity)
+  assert_engine(
+    is_not_false, 
+    x, 
+    msg = msg, 
+    .xname = get_name_in_parent(x), 
+    severity = severity
+  )
 }
 
 #' @rdname Truth
@@ -100,7 +147,14 @@ assert_any_are_not_false <- function(x,
     get_name_in_parent(x), 
     domain = "R-assertive.base"
   )
-  assert_engine(is_not_false, x, msg = msg, what = "any", severity = severity)
+  assert_engine(
+    is_not_false, 
+    x, 
+    msg = msg, 
+    what = "any",
+    .xname = get_name_in_parent(x), 
+    severity = severity
+  )
 }
 
 #' @rdname Truth
@@ -113,7 +167,14 @@ assert_all_are_not_na <- function(x,
     get_name_in_parent(x), 
     domain = "R-assertive.base"
   )
-  assert_engine(is_not_na, x, msg = msg, severity = severity)
+  assert_engine(
+    is_not_na, 
+    x, 
+    coerce_to_logical = FALSE, 
+    msg = msg, 
+    .xname = get_name_in_parent(x), 
+    severity = severity
+  )
 }
 
 #' @rdname Truth
@@ -126,7 +187,16 @@ assert_any_are_not_na <- function(x,
     get_name_in_parent(x), 
     domain = "R-assertive.base"
   )
-  assert_engine(is_not_na, x, msg = msg, what = "any", severity = severity)
+  
+  assert_engine(
+    is_not_na, 
+    x, 
+    coerce_to_logical = FALSE, 
+    msg = msg, 
+    what = "any",
+    .xname = get_name_in_parent(x), 
+    severity = severity
+  )
 }
 
 #' @rdname Truth
@@ -139,7 +209,13 @@ assert_all_are_not_true <- function(x,
     get_name_in_parent(x), 
     domain = "R-assertive.base"
   )
-  assert_engine(is_not_true, x, msg = msg, severity = severity)
+  assert_engine(
+    is_not_true, 
+    x, 
+    msg = msg, 
+    .xname = get_name_in_parent(x), 
+    severity = severity
+  )
 }
 
 #' @rdname Truth
@@ -152,5 +228,12 @@ assert_any_are_not_true <- function(x,
     get_name_in_parent(x), 
     domain = "R-assertive.base"
   )
-  assert_engine(is_not_true, x, msg = msg, what = "any", severity = severity)
+  assert_engine(
+    is_not_true, 
+    x, 
+    msg = msg, 
+    what = "any",
+    .xname = get_name_in_parent(x), 
+    severity = severity
+  )
 }
