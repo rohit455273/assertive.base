@@ -1,8 +1,8 @@
 #' @rdname Truth
 #' @export
-is_false <- function(x)
+is_false <- function(x, .xname = get_name_in_parent(x))
 {
-  x <- coerce_to(x, "logical", get_name_in_parent(x))
+  x <- coerce_to(x, "logical", .xname)
   call_and_name(
     function(x) 
     {
@@ -15,18 +15,23 @@ is_false <- function(x)
 
 #' @rdname Truth
 #' @export
-is_na <- function(x)
+is_na <- function(x, coerce_to_logical = FALSE, .xname = get_name_in_parent(x))
 {
-  # coerce_to(x, "logical") breaks character vectors, e.g., "NA" converted to NA
-  if(!is.character(x))
-  {
-    x <- coerce_to(x, "logical", get_name_in_parent(x))
-  }
   call_and_name(
     function(x)
     {
+      if(coerce_to_logical)
+      {
+        x <- coerce_to(x, "logical", .xname)
+      }
       ok <- is.na(x)
-      set_cause(ok, ifelse(x, "true", "false"))
+      if(is.logical(x))
+      {
+        set_cause(ok, ifelse(x, "true", "false"))
+      } else
+      {
+        set_cause(ok, "not missing")
+      }
     }, 
     x
   )
@@ -34,16 +39,15 @@ is_na <- function(x)
 
 #' @rdname Truth
 #' @export
-is_not_na <- function(x)
+is_not_na <- function(x, coerce_to_logical = FALSE, .xname = get_name_in_parent(x))
 {
-  # coerce_to(x, "logical") breaks character vectors, e.g., "NA" converted to NA
-  if(!is.character(x))
-  {
-    x <- coerce_to(x, "logical", get_name_in_parent(x))
-  }
   call_and_name(
     function(x)
     {
+      if(coerce_to_logical)
+      {
+        x <- coerce_to(x, "logical", .xname)
+      }
       ok <- !is.na(x)
       set_cause(ok, "missing")
     }, 
@@ -53,7 +57,7 @@ is_not_na <- function(x)
 
 #' @rdname Truth
 #' @export
-is_not_false <- function(x)
+is_not_false <- function(x, .xname = get_name_in_parent(x))
 {
   x <- coerce_to(x, "logical", get_name_in_parent(x))
   call_and_name(
@@ -68,9 +72,9 @@ is_not_false <- function(x)
 
 #' @rdname Truth
 #' @export
-is_not_true <- function(x)
+is_not_true <- function(x, .xname = get_name_in_parent(x))
 {
-  x <- coerce_to(x, "logical", get_name_in_parent(x))
+  x <- coerce_to(x, "logical", .xname)
   call_and_name(
     function(x)
     {
@@ -83,9 +87,9 @@ is_not_true <- function(x)
 
 #' @rdname Truth
 #' @export
-is_true <- function(x)
+is_true <- function(x, .xname = get_name_in_parent(x))
 {
-  x <- coerce_to(x, "logical", get_name_in_parent(x))
+  x <- coerce_to(x, "logical", .xname)
   call_and_name(
     function(x) 
     {
