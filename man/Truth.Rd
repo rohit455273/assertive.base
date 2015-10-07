@@ -72,17 +72,17 @@ is_identical_to_na(x, allow_attributes = FALSE,
 is_identical_to_true(x, allow_attributes = FALSE,
   .xname = get_name_in_parent(x))
 
-is_false(x)
+is_false(x, .xname = get_name_in_parent(x))
 
-is_na(x)
+is_na(x, coerce_to_logical = FALSE, .xname = get_name_in_parent(x))
 
-is_not_na(x)
+is_not_na(x, coerce_to_logical = FALSE, .xname = get_name_in_parent(x))
 
-is_not_false(x)
+is_not_false(x, .xname = get_name_in_parent(x))
 
-is_not_true(x)
+is_not_true(x, .xname = get_name_in_parent(x))
 
-is_true(x)
+is_true(x, .xname = get_name_in_parent(x))
 }
 \arguments{
 \item{x}{Input to check.  See note.}
@@ -94,6 +94,9 @@ with attributes is allowed.}
 Either \code{"stop"}, \code{"warning"}, \code{"message"}, or \code{"none"}.}
 
 \item{.xname}{Not intended to be used directly.}
+
+\item{coerce_to_logical}{Logical: should the input be coerced to logical
+before checking?  See note.}
 }
 \value{
 The \code{is*} functions return \code{TRUE} if the input is
@@ -113,16 +116,15 @@ attributes is allowed. \code{is_true} and \code{is_false} are vectorized,
 returning \code{TRUE} when the inputs are \code{TRUE} and \code{FALSE}
 respectively.
 
-The \code{x} argument will be coerced to be a logical vector if it isn't
-already.  This means that \code{is_na} differs in behaviour from
-\code{base::is.na} for list and data frame inputs.  To replicate the
-behaviour of \code{is.na}, try \code{is_na(unlist(x))} or use an \code{apply}
-function to loop over columns or elements of \code{x}.
+The for \code{is_true}, \code{is_false}, \code{is_not_true} and
+\code{is_not_false}, \code{x} argument will be coerced to be a logical vector
+if it isn't already.
 
-There is one important exception to the above coercion rule.  Character
-vector inputs to \code{is_na} and \code{is_not_na} are not coerced to
-logical vectors, since that converts the string \code{"NA"} to a missing
-value, thus giving an incorrect answer.
+Coercion to logical is optional for \code{is_na} and \code{is_not_na}. If
+you do coerce, it means that \code{is_na} differs in behaviour from
+\code{base::is.na} for character vector, list and data frame inputs.  To
+replicate the behaviour of \code{is.na}, ensure the argument
+\code{coerce_to_logical} is \code{FALSE} (this is the default).
 
 Note that in assertive version 0.1-4 and prior,
 \code{is_identical_to_true/false} were named \code{is_true/false} and the
