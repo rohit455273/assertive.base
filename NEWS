@@ -1,3 +1,4 @@
+0.0-3 Reverted behaviour of is_na, is_not_na to prevent breaks in dependencies.
 0.0-2 Added Dutch, French, German, Greek, Hungarian, Korean, Russian, Swedish, 
       Turkish, and Ukranian translations.
       Added assert_are_identical for comparing two objects.

@@ -1,6 +1,7 @@
 ## Release Summary
 
-This release adds translations for the error messages.
+This release fixes the behaviour of is_na and is_not_na that broke downstream
+packages.
 
 ## Test Environments
 
@@ -11,14 +12,6 @@ This release adds translations for the error messages.
 
 There were no ERRORs or WARNINGs.
 
-Building on CRAN, you may see 
-
-* checking Rd cross-references ... WARNING
-Unknown packages ‘assertive.properties’, ‘assertive.types’ in Rd xrefs
-
-These other packages will be uploaded once assertive.base is successfully on CRAN.
-
 ## Downstream dependencies
 
-A new version of the downstream assertive package will be uploaded once the
-other assertive.* packages are successfully on CRAN.
+This fixes issues with the downstream matrixpls package.
