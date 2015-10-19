@@ -93,9 +93,9 @@ give_feedback <- function(handler_type, msg)
 #' @export
 false <- function(...)
 {
-  msg <- if(length(list(...)) > 0L) sprintf(...) else ""
+  msg <- if(nargs() > 0L) sprintf(...) else ""
   x <- FALSE
-  cause(x) <- msg
+  cause(x) <- msg[1]
   class(x) <- c("scalar_with_cause", "logical")
   x
 }
@@ -111,9 +111,9 @@ false <- function(...)
 #' @export
 na <- function(...)
 {
-  msg <- if(length(list(...)) > 0L) sprintf(...) else ""
+  msg <- if(nargs() > 0L) sprintf(...) else ""
   x <- NA
-  cause(x) <- msg
+  cause(x) <- msg[1]
   class(x) <- c("scalar_with_cause", "logical")
   x
 }
