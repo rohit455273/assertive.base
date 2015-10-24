@@ -4,13 +4,16 @@
 \alias{set_cause}
 \title{Set a cause and return the input}
 \usage{
-set_cause(x, value)
+set_cause(x, false_value, missing_value = "missing")
 }
 \arguments{
 \item{x}{A variable.}
 
-\item{value}{A character vector to set the cause to, where \code{x} is
-not \code{TRUE}.}
+\item{false_value}{A character vector to set the cause to, where \code{x} is
+\code{FALSE}.}
+
+\item{missing_value}{A character vector to set the cause to, where \code{x} is
+\code{NA}.}
 }
 \value{
 \code{x}, with a new cause attribute.
@@ -21,7 +24,8 @@ Sets the cause attribute of an object and returns that object.
 \details{
 If \code{x} is \code{TRUE} everywhere, this returns the input
 without setting a cause.  Otherwise, the cause is an empty string where
-\code{x} is \code{TRUE}, and \code{value} elsewhere.
+\code{x} is \code{TRUE}, \code{false_value} where it is \code{FALSE}, and
+\code{missing_value} where it is \code{NA}.
 }
 \seealso{
 \code{\link{cause}}, \code{\link[stats]{setNames}}

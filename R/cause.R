@@ -49,25 +49,31 @@ cause <- function(x)
 #' 
 #' Sets the cause attribute of an object and returns that object.
 #' @param x A variable.
-#' @param value A character vector to set the cause to, where \code{x} is
-#' not \code{TRUE}.
+#' @param false_value A character vector to set the cause to, where \code{x} is
+#' \code{FALSE}.
+#' @param missing_value A character vector to set the cause to, where \code{x} is
+#' \code{NA}.
 #' @details If \code{x} is \code{TRUE} everywhere, this returns the input 
 #' without setting a cause.  Otherwise, the cause is an empty string where 
-#' \code{x} is \code{TRUE}, and \code{value} elsewhere.
+#' \code{x} is \code{TRUE}, \code{false_value} where it is \code{FALSE}, and
+#' \code{missing_value} where it is \code{NA}.
 #' @return \code{x}, with a new cause attribute.
 #' @seealso \code{\link{cause}}, \code{\link[stats]{setNames}}
 #' @export
-set_cause <- function(x, value)
+set_cause <- function(x, false_value, missing_value = "missing")
 {
   if(all(!is.na(x) & x)) return(x)
+  len_x <- length(x)
   # TRUEs
-  cause_value <- character(length(x))
+  cause_value <- character(len_x)
   # NAs
-  cause_value[is.na(x)] <- "missing"
+  missing_value <- rep_len(missing_value, len_x)
+  missing_index <- is.na(x)
+  cause_value[missing_index] <- missing_value[missing_index]
   # FALSEs
-  value <- rep_len(value, length(x))
-  index <- !x & !is.na(x)
-  cause_value[index] <- value[index]
+  false_value <- rep_len(false_value, len_x)
+  false_index <- !x & !is.na(x)
+  cause_value[false_index] <- false_value[false_index]
   
   cause(x) <- cause_value
   class(x) <- c("vector_with_cause", "logical")
