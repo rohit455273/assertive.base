@@ -69,7 +69,7 @@ give_feedback <- function(handler_type, msg)
   handler <- match.fun(
     handler_type
   )
-  simple <- switch(
+  ass_condition <- switch(
     handler_type,
     stop = assertionError,
     warning = assertionWarning,
@@ -77,9 +77,10 @@ give_feedback <- function(handler_type, msg)
   )
   # Throw error/warning/message
   caller <- sys.call(-3)
-  # UTF-8 characters do not display correctly under Windows
+  # UTF-8 characters do not display correctly under Windows for some 
+  # LC_CTYPE locale values, but there isn't much assertive can do about that.
   # http://stackoverflow.com/q/32696241/134830
-  handler(simple(msg, caller))
+  handler(ass_condition(msg, caller))
 }
 
 #' FALSE, with a cause of failure.
