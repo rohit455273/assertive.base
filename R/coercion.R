@@ -24,7 +24,7 @@ is2 <- function(x, class, .xname = get_name_in_parent(x))
     return(
       set_cause(
         bapply(class, function(cl) is2(x, cl, "")),
-        rep.int(type_description(x), length(x))
+        rep.int(type_description(x), length(class))
       )
     )
   }
