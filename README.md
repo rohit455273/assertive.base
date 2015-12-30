@@ -2,6 +2,7 @@
 [![Is the package on CRAN?](http://www.r-pkg.org/badges/version/assertive.base)](http://www.r-pkg.org/pkg/assertive.base)
 [![Build Status](https://semaphoreci.com/api/v1/projects/01fd8743-d3d2-42ad-b63d-e94c5844e951/635080/badge.svg)](https://semaphoreci.com/richierocks/assertive-base)
 [![codecov.io](https://codecov.io/bitbucket/richierocks/assertive.base/coverage.svg?branch=master)](https://codecov.io/bitbucket/richierocks/assertive.base?branch=master)
+[![Coverage Status](https://coveralls.io/repos/richierocks/assertive.base/badge.svg?branch=master&service=bitbucket)](https://coveralls.io/bitbucket/richierocks/assertive.base?branch=master)
 
 # assertive.base
 
