@@ -27,9 +27,7 @@ isn't checked; it is up to the developer of the assertion to make
 sure that this condition holds.
 }
 \examples{
-\dontrun{
 call_and_name(is.finite, c(1, Inf, NA))
-}
 }
 \seealso{
 \code{\link{cause}} and \code{\link{na}}.

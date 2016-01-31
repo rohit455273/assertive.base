@@ -17,7 +17,7 @@ Runs code without stopping, warnings and errors are only printed.
 }
 \note{
 This function is dangerous, since it overrides warnings and errors.
-Its intended use is for documenting examples of errors.
+Its intended use is for documenting examples of warnings and errors.
 }
 \examples{
 dont_stop(warning("!!!"))
@@ -25,5 +25,8 @@ dont_stop(stop("!!!"))
 f <- function() g()
 g <- function() stop("!!!")
 dont_stop(f())
+}
+\seealso{
+\code{\link[base]{try}} and \code{\link[base]{conditions}}
 }
 

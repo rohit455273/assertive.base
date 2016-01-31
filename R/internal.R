@@ -8,9 +8,10 @@
 #' @examples
 #' \dontrun{
 #' # This is useful for including data frames in warnings or errors
-#' message("This is the CO2 dataset:\n", print_and_capture(CO2))
+#' message("This is the CO2 dataset:\n", assertive.base:::print_and_capture(CO2))
 #' }
 #' @importFrom utils capture.output
+#' @noRd
 print_and_capture <- function(x)
 {
   # call to enc2utf8 is a workaround for
@@ -24,10 +25,10 @@ print_and_capture <- function(x)
 #' @param x A character vector, or something coercible to one.
 #' @param width A positive integer.
 #' @return A character vector
+#' @seealso \code{\link[base]{abbreviate}}
 #' @examples
-#' \dontrun{
-#' truncate(c("abcd", "efghi", "jklmno", "pqrstuv"), 5)
-#' }
+#' assertive.base:::truncate(c("abcd", "efghi", "jklmno", "pqrstuv"), 5)
+#' @noRd
 truncate <- function(x, width = getOption("width"))
 {
   x <- as.character(x)
