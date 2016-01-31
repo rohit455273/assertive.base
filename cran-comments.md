@@ -1,12 +1,12 @@
 ## Release Summary
 
-This release fixes the behaviour of is_na and is_not_na that broke downstream
-packages.
+This release contains minor fixes and documentation updates.
 
 ## Test Environments
 
-* Windows 7, R-devel r69463 and R-3.2.2patched r69455
-* Red Hat 4.4.7-4, R-3.1.2
+* Local Windows 7 & 10, R-devel 
+* Semaphore CI + Ubuntu 14.04, R-devel and R-release
+* AppVeyor + Windows Server 2012, R-devel
 
 ## R CMD check results
 
@@ -14,4 +14,4 @@ There were no ERRORs or WARNINGs.
 
 ## Downstream dependencies
 
-This fixes issues with the downstream matrixpls package.
+No changes that affect downstream packages.
