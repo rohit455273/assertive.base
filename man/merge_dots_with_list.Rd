@@ -4,12 +4,15 @@
 \alias{merge_dots_with_list}
 \title{Merge ellipsis args with a list.}
 \usage{
-merge_dots_with_list(..., l = list())
+merge_dots_with_list(..., l = list(), warn_on_dupes = TRUE)
 }
 \arguments{
 \item{...}{Some inputs.}
 
 \item{l}{A list.}
+
+\item{warn_on_dupes}{\code{TRUE} or \code{FALSE}.  Should a warning be given 
+if both \code{x} and \code{y} have elements with the same name.  See note.}
 }
 \value{
 A list containing the merged inputs.

@@ -143,6 +143,8 @@ merge.NULL <- function(x, y, ...)
 #'
 #' @param ... Some inputs.
 #' @param l A list.
+#' @param warn_on_dupes \code{TRUE} or \code{FALSE}.  Should a warning be given 
+#' if both \code{x} and \code{y} have elements with the same name.  See note.
 #' @note If any arguments are present in both the \code{...} and \code{l} 
 #' arguments, the \code{...} version takes preference, and a warning is thrown.
 #' @return A list containing the merged inputs.
@@ -155,11 +157,11 @@ merge.NULL <- function(x, y, ...)
 #'   l = list(foo = 4, baz = 5, quux = 6)
 #' )
 #' @export
-merge_dots_with_list <- function(..., l = list())
+merge_dots_with_list <- function(..., l = list(), warn_on_dupes = TRUE)
 {
   dots <- list(...)
   l <- coerce_to(l, "list", get_name_in_parent(l))
-  merge(dots, l)
+  merge(dots, l, warn_on_dupes = warn_on_dupes)
 }
 
 #' Wrap a string in brackets
