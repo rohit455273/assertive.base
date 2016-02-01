@@ -4,13 +4,15 @@
 \alias{use_first}
 \title{Only use the first element of a vector}
 \usage{
-use_first(x, indexer = c("[[", "["))
+use_first(x, indexer = c("[[", "["), .xname = get_name_in_parent(x))
 }
 \arguments{
 \item{x}{Input that should be scalar.}
 
 \item{indexer}{Either double indexing, \code{"[["} (the default) or
 single indexing \code{"["}.}
+
+\item{.xname}{Not intended to be used directly.}
 }
 \value{
 If \code{x} is scalar, it is returned unchanged, otherwise

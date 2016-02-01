@@ -252,27 +252,28 @@ strip_attributes <- function(x)
 #' @param x Input that should be scalar.
 #' @param indexer Either double indexing, \code{"[["} (the default) or
 #' single indexing \code{"["}.
+#' @param .xname Not intended to be used directly.
 #' @return If \code{x} is scalar, it is returned unchanged, otherwise
 #' only the first element is returned, with a warning.
+#' @examples 
+#' dont_stop(use_first(1:5))
 #' @export
-use_first <- function(x, indexer = c("[[", "["))
+use_first <- function(x, indexer = c("[[", "["), .xname = get_name_in_parent(x))
 {
+  len_x <- length(x)
   # Can't use assert_is_non_empty, is_scalar in next lines because those 
   # functions calls this one.
-  if(length(x) == 0L)
+  if(len_x == 0L)
   {
-    stop(sprintf("%s has length 0.", get_name_in_parent(x)))
+    stop(sprintf("%s has length 0.", .xname))
   }
-  if(length(x) == 1L)
+  if(len_x == 1L)
   {
     return(x)
   }
   indexer <- match.fun(match.arg(indexer))
   warning(
-    sprintf(
-      "Only the first value of %s will be used.",
-      sQuote(get_name_in_parent(x))
-    ),
+    sprintf("Only the first value of %s will be used.", .xname),
     call. = FALSE
   )
   indexer(x, 1L)
