@@ -43,34 +43,53 @@ call_and_name <- function(fn, x, ...)
 
 #' Run code without stopping
 #' 
-#' Runs code without stopping, warnings and errors are only printed.
-#' @param ... Passed to \code{tryCatch}.
-#' @return The expression that was passed in is run.
+#' Runs code without stopping for warnings or errors.
+#' @param expr Code to execute.
+#' @return A list containing the results of evaluating each call in \code{expr}.
 #' @note This function is dangerous, since it overrides warnings and errors.
 #' Its intended use is for documenting examples of warnings and errors.
-#' @seealso \code{\link[base]{try}} and \code{\link[base]{conditions}}
+#' @seealso \code{\link[base]{warning}} and \code{\link[base]{stop}} for 
+#' generating warnings and errors respectively; \code{\link[base]{try}} and
+#' \code{\link[base]{conditions}} for handling them.
 #' @examples
-#' dont_stop(warning("!!!"))
-#' dont_stop(stop("!!!"))
-#' f <- function() g()
-#' g <- function() stop("!!!")
-#' dont_stop(f())
+#' dont_stop({
+#'   warning("a warning")
+#'   x <- 1
+#'   stop("an error")
+#'   y <- sqrt(exp(x + 1))
+#'   assert_is_identical_to_true(y)
+#'   y > 0
+#' })
 #' @export
-dont_stop <- function(...)
+dont_stop <- function(expr)
 {
-  # The expression, without dont_stop().
-  cl <- sys.call()[[2]]
-  p <- function(e) 
+  this_env <- sys.frame(sys.nframe())
+  
+  # Split the expression up into a list of calls
+  subbed_expr <- substitute(expr, this_env)
+  # Temporarily wrap expr in braces, if it isn't already
+  brace <- quote(`{`)
+  if(!identical(subbed_expr[[1L]], brace))
   {
-    # If the error call claims to be to doTryCatch, then nothing interesting
-    # was captured, so use the parent call that we captured earlier.
-    if(identical(e$call[[1]], as.name("doTryCatch")))
-    {
-      e$call <- cl
-    }
-    print(e)
+    subbed_expr <- c(brace, subbed_expr)
   }
-  tryCatch(..., warning = p, error = p)
+  call_list <- as.list(subbed_expr)[-1L] # -1 to ignore brace again
+  names(call_list) <- vapply(call_list, deparse, character(1))
+  
+  handler <- function(e)
+  {
+    e$call <- NULL # Override the condition's call
+    e
+  }
+  
+  # Evaluate each one in turn
+  lapply(
+    call_list,
+    function(calli)
+    {
+      tryCatch(eval(calli, this_env), warning = handler, error = handler)
+    }
+  )
 }
 
 #' Get the name of a variable in the parent frame
