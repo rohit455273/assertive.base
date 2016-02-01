@@ -30,9 +30,7 @@ bapply <- function(x, predicate, ...)
 #' isn't checked; it is up to the developer of the assertion to make
 #' sure that this condition holds.
 #' @examples
-#' \dontrun{
 #' call_and_name(is.finite, c(1, Inf, NA))
-#' }
 #' @seealso \code{\link{cause}} and \code{\link{na}}.
 #' @export
 call_and_name <- function(fn, x, ...)
@@ -49,7 +47,8 @@ call_and_name <- function(fn, x, ...)
 #' @param ... Passed to \code{tryCatch}.
 #' @return The expression that was passed in is run.
 #' @note This function is dangerous, since it overrides warnings and errors.
-#' Its intended use is for documenting examples of errors.
+#' Its intended use is for documenting examples of warnings and errors.
+#' @seealso \code{\link[base]{try}} and \code{\link[base]{conditions}}
 #' @examples
 #' dont_stop(warning("!!!"))
 #' dont_stop(stop("!!!"))

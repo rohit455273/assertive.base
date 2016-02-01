@@ -21,7 +21,7 @@
 #' @note Missing values are considered as \code{FALSE} for the purposes of
 #' whether or not an error is thrown.
 #' @export
-assert_engine <- function(predicate, ..., msg, what = c("all", "any"), na_ignore = FALSE, severity = c("stop", "warning", "message", "none"))
+assert_engine <- function(predicate, ..., msg = "The assertion failed.", what = c("all", "any"), na_ignore = FALSE, severity = c("stop", "warning", "message", "none"))
 {
   handler_type <- match.arg(severity)
   dots <- list(...)
