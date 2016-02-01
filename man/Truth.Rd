@@ -164,17 +164,23 @@ assert_any_are_false(x)
 assert_any_are_na(x)
 
 # These tests should fail:
-dont_stop(assert_is_identical_to_true(c(truth = TRUE)))
-dont_stop(assert_is_identical_to_false(matrix(FALSE)))
-dont_stop(assert_is_identical_to_na(structure(NA, class = "nanana")))
-dont_stop(assert_all_are_true(x))
-dont_stop(assert_all_are_false(x))
-dont_stop(assert_all_are_na(x))
+dont_stop({
+  assert_is_identical_to_true(c(truth = TRUE))
+  assert_is_identical_to_false(matrix(FALSE))
+  assert_is_identical_to_na(structure(NA, class = "nanana"))
+  assert_all_are_true(x)
+  assert_all_are_false(x)
+  assert_all_are_na(x)
+})
 
 # base::is.na has non-standard behaviour for data.frames and lists.
 # is_na and is_not_na coerce to logical vectors (except character input).
 # unlist the input or use an apply function.
-d <- data.frame(x = c(TRUE, FALSE, NA), y = c(0, NA, 2), z = c("a", "NA", NA))
+d <- data.frame(
+  x = c(TRUE, FALSE, NA), 
+  y = c(0, NA, 2), 
+  z = c("a", "NA", NA)
+)
 is.na(d)
 is_na(unlist(d))
 }
