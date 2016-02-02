@@ -1,4 +1,6 @@
-0.0-4 Minor fixes and documentation updates.
+0.0-4 Many minor fixes and documentation updates.
+      dont_stop can now run past multiple errors (slightly breaking change).
+      merge.list and merge_dots_with_list deal with unnamed arguments.
 0.0-3 Reverted behaviour of is_na, is_not_na to prevent breaks in dependencies.
 0.0-2 Added Dutch, French, German, Greek, Hungarian, Korean, Russian, Swedish, 
       Turkish, and Ukranian translations.
