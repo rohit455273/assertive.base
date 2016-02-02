@@ -119,6 +119,8 @@ get_name_in_parent <- function(x)
 #' @param y A list.
 #' @param warn_on_dupes \code{TRUE} or \code{FALSE}.  Should a warning be given 
 #' if both \code{x} and \code{y} have elements with the same name.  See note.
+#' @param allow_unnamed_elements \code{TRUE} or \code{FALSE}. Should unnamed
+#' elements be allowed?
 #' @param ... Ignored.
 #' @return A list, combining elements from \code{x} and \code{y}.
 #' @note In the event of elements that are duplicated between \code{x} and 
@@ -129,12 +131,37 @@ get_name_in_parent <- function(x)
 #'   list(foo = 1, bar = 2, baz = 3), 
 #'   list(foo = 4, baz = 5, quux = 6)
 #' )
+#' 
+#' # If unnamed elements are allowed, they are included at the end
+#' merge(
+#'   list("a", foo = 1, "b", bar = 2, baz = 3, "c"), 
+#'   list(foo = 4, "a", baz = 5, "b", quux = 6, "d"),
+#'   allow_unnamed_elements = TRUE
+#' )
 #' @method merge list
 #' @export
-merge.list <- function(x, y, warn_on_dupes = TRUE, ...)
+merge.list <- function(x, y, warn_on_dupes = TRUE, allow_unnamed_elements = FALSE, ...)
 {
   if(is.null(y)) return(x)
   y <- coerce_to(y, "list", get_name_in_parent(y))
+  
+  # Get elements without names
+  x_is_unnamed <- names_never_null(x) == ""
+  y_is_unnamed <- names_never_null(y) == ""
+  if(allow_unnamed_elements)
+  {
+    unnamed_values <- c(x[x_is_unnamed], y[y_is_unnamed])
+    x <- x[!x_is_unnamed]
+    y <- y[!y_is_unnamed]
+  } else
+  {
+    if(any(x_is_unnamed) || any(y_is_unnamed))
+    {
+      stop("There are unnamed elements in x or y, but allow_unnamed_elements = FALSE.")
+    }
+  }
+  
+  # Now deal with named elements
   all_names <- c(names(x), names(y))
   all_values <- c(x, y)
   if(anyDuplicated(all_names) > 0)
@@ -148,12 +175,11 @@ merge.list <- function(x, y, warn_on_dupes = TRUE, ...)
     }
     all_values <- all_values[!duplicated(all_names)]
   }
+  if(allow_unnamed_elements)
+  {
+    all_values <- c(all_values, unnamed_values)
+  }
   all_values
-}
-
-merge.NULL <- function(x, y, ...)
-{
-  return(y)
 }
 
 #' Merge ellipsis args with a list.
@@ -164,6 +190,8 @@ merge.NULL <- function(x, y, ...)
 #' @param l A list.
 #' @param warn_on_dupes \code{TRUE} or \code{FALSE}.  Should a warning be given 
 #' if both \code{x} and \code{y} have elements with the same name.  See note.
+#' @param allow_unnamed_elements \code{TRUE} or \code{FALSE}. Should unnamed
+#' elements be allowed?
 #' @note If any arguments are present in both the \code{...} and \code{l} 
 #' arguments, the \code{...} version takes preference, and a warning is thrown.
 #' @return A list containing the merged inputs.
@@ -176,7 +204,7 @@ merge.NULL <- function(x, y, ...)
 #'   l = list(foo = 4, baz = 5, quux = 6)
 #' )
 #' @export
-merge_dots_with_list <- function(..., l = list(), warn_on_dupes = TRUE)
+merge_dots_with_list <- function(..., l = list(), warn_on_dupes = TRUE, allow_unnamed_elements = FALSE)
 {
   dots <- list(...)
   l <- coerce_to(l, "list", get_name_in_parent(l))

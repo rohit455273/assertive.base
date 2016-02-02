@@ -4,7 +4,8 @@
 \alias{merge.list}
 \title{Merge two lists}
 \usage{
-\method{merge}{list}(x, y, warn_on_dupes = TRUE, ...)
+\method{merge}{list}(x, y, warn_on_dupes = TRUE,
+  allow_unnamed_elements = FALSE, ...)
 }
 \arguments{
 \item{x}{A list.}
@@ -13,6 +14,9 @@
 
 \item{warn_on_dupes}{\code{TRUE} or \code{FALSE}.  Should a warning be given 
 if both \code{x} and \code{y} have elements with the same name.  See note.}
+
+\item{allow_unnamed_elements}{\code{TRUE} or \code{FALSE}. Should unnamed
+elements be allowed?}
 
 \item{...}{Ignored.}
 }
@@ -30,6 +34,13 @@ In the event of elements that are duplicated between \code{x} and
 merge(
   list(foo = 1, bar = 2, baz = 3), 
   list(foo = 4, baz = 5, quux = 6)
+)
+
+# If unnamed elements are allowed, they are included at the end
+merge(
+  list("a", foo = 1, "b", bar = 2, baz = 3, "c"), 
+  list(foo = 4, "a", baz = 5, "b", quux = 6, "d"),
+  allow_unnamed_elements = TRUE
 )
 }
 \seealso{

@@ -4,7 +4,8 @@
 \alias{merge_dots_with_list}
 \title{Merge ellipsis args with a list.}
 \usage{
-merge_dots_with_list(..., l = list(), warn_on_dupes = TRUE)
+merge_dots_with_list(..., l = list(), warn_on_dupes = TRUE,
+  allow_unnamed_elements = FALSE)
 }
 \arguments{
 \item{...}{Some inputs.}
@@ -13,6 +14,9 @@ merge_dots_with_list(..., l = list(), warn_on_dupes = TRUE)
 
 \item{warn_on_dupes}{\code{TRUE} or \code{FALSE}.  Should a warning be given 
 if both \code{x} and \code{y} have elements with the same name.  See note.}
+
+\item{allow_unnamed_elements}{\code{TRUE} or \code{FALSE}. Should unnamed
+elements be allowed?}
 }
 \value{
 A list containing the merged inputs.

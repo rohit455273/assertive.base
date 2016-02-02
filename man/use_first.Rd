@@ -22,4 +22,7 @@ only the first element is returned, with a warning.
 If the input is not scalar, then only the first element is returned, 
 with a warning.
 }
+\examples{
+dont_stop(use_first(1:5))
+}
 

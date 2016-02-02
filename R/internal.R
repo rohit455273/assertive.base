@@ -1,3 +1,18 @@
+merge.NULL <- function(x, y, ...)
+{
+  return(y)
+}
+
+names_never_null <- function(x)
+{
+  nms <- names(x)
+  if(is.null(nms))
+  {
+    nms <- character(length(x))
+  }  
+  nms
+}
+
 #' Print a variable and capture the output
 #' 
 #' Prints a variable and captures the output, collapsing the value to a single 
