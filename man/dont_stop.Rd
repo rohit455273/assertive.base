@@ -4,29 +4,34 @@
 \alias{dont_stop}
 \title{Run code without stopping}
 \usage{
-dont_stop(...)
+dont_stop(expr)
 }
 \arguments{
-\item{...}{Passed to \code{tryCatch}.}
+\item{expr}{Code to execute.}
 }
 \value{
-The expression that was passed in is run.
+A list containing the results of evaluating each call in \code{expr}.
 }
 \description{
-Runs code without stopping, warnings and errors are only printed.
+Runs code without stopping for warnings or errors.
 }
 \note{
 This function is dangerous, since it overrides warnings and errors.
 Its intended use is for documenting examples of warnings and errors.
 }
 \examples{
-dont_stop(warning("!!!"))
-dont_stop(stop("!!!"))
-f <- function() g()
-g <- function() stop("!!!")
-dont_stop(f())
+dont_stop({
+  warning("a warning")
+  x <- 1
+  stop("an error")
+  y <- sqrt(exp(x + 1))
+  assert_is_identical_to_true(y)
+  y > 0
+})
 }
 \seealso{
-\code{\link[base]{try}} and \code{\link[base]{conditions}}
+\code{\link[base]{warning}} and \code{\link[base]{stop}} for 
+generating warnings and errors respectively; \code{\link[base]{try}} and
+\code{\link[base]{conditions}} for handling them.
 }
 
