@@ -7,6 +7,42 @@ test_that("test.coerce_to.numeric_vector_to_data_frame.returns_data_frame",
   })
 
 test_that(
+  "dont_stop with multiple errors and warnings successfully runs",
+  {
+    expected <- list(
+      'stop("If you don\'t stop;")' = simpleError("If you don't stop;"),
+      'warning("Someone\'s gonna find yo\' ass dead (this is a warning)")' = simpleWarning("Someone's gonna find yo' ass dead (this is a warning)"),
+      'warning("Someone\'s gonna poison your food (this is a warning)")' = simpleWarning("Someone's gonna poison your food (this is a warning)"),
+      'stop("Don\'t stop, no no, you\'ll be sorry")' = simpleError("Don\'t stop, no no, you\'ll be sorry")
+    )
+    actual <- dont_stop(
+      {
+        # With apologies to Lil' Kim
+        stop("If you don't stop;")
+        warning("Someone's gonna find yo' ass dead (this is a warning)")
+        warning("Someone's gonna poison your food (this is a warning)")
+        stop("Don't stop, no no, you'll be sorry")
+      }
+    )
+    expect_identical(actual, expected)
+  }
+)
+
+test_that(
+  "dont_stop works with objects that don't deparse to a single string",
+  {
+    expected <- list("function() {}" = function() {})
+    actual <- dont_stop(
+      # deparse returns a character vector 
+      function() {} 
+    )
+    # don't test for identicality due to function environment
+    expect_equal(actual, expected)
+  }
+)
+
+
+test_that(
   "test.parenthesise.character_input.returns_parenthesised_input",  
   {
     x <- "foo"

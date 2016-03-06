@@ -74,11 +74,18 @@ dont_stop <- function(expr)
     subbed_expr <- c(brace, subbed_expr)
   }
   call_list <- as.list(subbed_expr)[-1L] # -1 to ignore brace again
-  names(call_list) <- vapply(call_list, deparse, character(1))
+  names(call_list) <- vapply(
+    call_list, 
+    function(x) 
+    {
+      paste0(deparse(x), collapse = "")
+    }, 
+    character(1)
+  )
   
   handler <- function(e)
   {
-    e$call <- NULL # Override the condition's call
+    e["call"] <- list(NULL) # Override the condition's call
     e
   }
   
