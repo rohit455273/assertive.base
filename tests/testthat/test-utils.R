@@ -47,6 +47,58 @@ test_that(
   }
 )
 
+test_that(
+  "get_name_in_parent works when object exists outside of function",
+  {
+    outside <- 1
+    f <- function(inside) 
+    {
+      get_name_in_parent(inside)
+    }
+    expected <- "outside"
+    actual <- f(outside)
+    expect_identical(actual, expected)
+  }
+)
+
+test_that(
+  "get_name_in_parent works when object doesn't exist outside of function",
+  {
+    f <- function(inside) 
+    {
+      get_name_in_parent(inside)
+    }
+    expected <- "1"
+    actual <- f(1)
+    expect_identical(actual, expected)
+  }
+)
+
+test_that(
+  "get_name_in_parent works with percent inside function call, escape_percent = TRUE",
+  {
+    f <- function(inside) 
+    {
+      get_name_in_parent(inside)
+    }
+    expected <- "1 %%>%% exp"
+    actual <- f(1 %>% exp)
+    expect_identical(actual, expected)
+  }
+)
+
+test_that(
+  "get_name_in_parent works with percent inside function call, escape_percent = FALSE",
+  {
+    f <- function(inside) 
+    {
+      get_name_in_parent(inside, FALSE)
+    }
+    expected <- "1 %>% exp"
+    actual <- f(1 %>% exp)
+    expect_identical(actual, expected)
+  }
+)
 
 test_that(
   "test.parenthesise.character_input.returns_parenthesised_input",  

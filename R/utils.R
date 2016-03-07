@@ -104,11 +104,23 @@ dont_stop <- function(expr)
 #' Gets the name of the input in the parent frame.
 #'
 #' @param x Variable to get the name of.
+#' @param escape_percent Logical. If \code{TRUE}, percent signs are doubled, 
+#' making the value suitable for use with \code{sprintf} (and hence by 
+#' \code{false} and \code{na}).
 #' @return A string giving the name of the input in the parent frame.
+#' @examples 
+#' outside <- 1
+#' f <- function(inside, escape_percent) 
+#' {
+#'   get_name_in_parent(inside, escape_percent)
+#' }
+#' f(outside, TRUE) 
+#' f('10%', TRUE) 
+#' f('10%', FALSE)
 #' @export
-get_name_in_parent <- function(x)
+get_name_in_parent <- function(x, escape_percent = TRUE)
 {  
-  paste0(
+  xname <- paste0(
     deparse(
       do.call(
         substitute, 
@@ -117,6 +129,11 @@ get_name_in_parent <- function(x)
     ),
     collapse = ""
   )
+  if(escape_percent)
+  {
+    xname <- gsub("%", "%%", xname)
+  }
+  xname
 }
 
 #' Merge two lists
