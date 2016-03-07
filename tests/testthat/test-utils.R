@@ -13,7 +13,9 @@ test_that(
       'stop("If you don\'t stop;")' = simpleError("If you don't stop;"),
       'warning("Someone\'s gonna find yo\' ass dead (this is a warning)")' = simpleWarning("Someone's gonna find yo' ass dead (this is a warning)"),
       'warning("Someone\'s gonna poison your food (this is a warning)")' = simpleWarning("Someone's gonna poison your food (this is a warning)"),
-      'stop("Don\'t stop, no no, you\'ll be sorry")' = simpleError("Don\'t stop, no no, you\'ll be sorry")
+      'stop("Don\'t stop, no no, you\'ll be sorry")' = simpleError("Don\'t stop, no no, you\'ll be sorry"),
+      'stop("Don\'t stop, thinking about tomorrow")' = simpleError("Don't stop, thinking about tomorrow"),
+      'stop("Don\'t stop, it\'ll soon be here")' = simpleError("Don't stop, it'll soon be here")
     )
     actual <- dont_stop(
       {
@@ -22,6 +24,10 @@ test_that(
         warning("Someone's gonna find yo' ass dead (this is a warning)")
         warning("Someone's gonna poison your food (this is a warning)")
         stop("Don't stop, no no, you'll be sorry")
+        
+        # Bonus errors for David, Jenny and other Fleetwood Mac fans
+        stop("Don't stop, thinking about tomorrow")
+        stop("Don't stop, it'll soon be here")
       }
     )
     expect_identical(actual, expected)
