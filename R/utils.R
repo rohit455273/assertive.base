@@ -232,7 +232,7 @@ merge_dots_with_list <- function(..., l = list(), warn_on_dupes = TRUE, allow_un
 {
   dots <- list(...)
   l <- coerce_to(l, "list", get_name_in_parent(l))
-  merge(dots, l, warn_on_dupes = warn_on_dupes)
+  merge(dots, l, warn_on_dupes = warn_on_dupes, allow_unnamed_elements = allow_unnamed_elements)
 }
 
 #' Wrap a string in brackets
