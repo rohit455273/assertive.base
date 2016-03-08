@@ -101,6 +101,49 @@ test_that(
 )
 
 test_that(
+  "merge_dots_with_list takes duplicates from ...",
+  {
+    expected <- list(x = 1, y = "b", z = TRUE)
+    expect_warning(
+      actual <- merge_dots_with_list(x = 1, y = "b", l = list(y = "c", z = TRUE)),
+      "Duplicated arguments: y"
+    )
+    expect_equal(actual, expected)
+  }
+)
+
+test_that(
+  "merge_dots_with_list throws an error with unnamed arguments and allow_unnamed_elements = FALSE",
+  {
+    expect_error(
+      merge_dots_with_list(x = 1, "b", l = list(y = "c")),
+      "There are unnamed elements in x or y, but allow_unnamed_elements = FALSE"
+    )
+  }
+)
+
+test_that(
+  "merge_dots_with_list works with unnamed arguments and allow_unnamed_elements = TRUE",
+  {
+    expected <- list(x = 1, y = "c", "b")
+    actual <- merge_dots_with_list(
+      x = 1, "b", l = list(y = "c"), 
+      allow_unnamed_elements = TRUE
+    )
+    expect_equal(actual, expected)
+  }
+)
+
+test_that(
+  "merge_dots_with_list works with no list argument",
+  {
+    expected <- list(x = 1, y = "b")
+    actual <- merge_dots_with_list(x = 1, y = "b")
+    expect_equal(actual, expected)
+  }
+)
+
+test_that(
   "test.parenthesise.character_input.returns_parenthesised_input",  
   {
     x <- "foo"
