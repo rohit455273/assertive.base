@@ -166,7 +166,7 @@ get_name_in_parent <- function(x, escape_percent = TRUE)
 #' @export
 merge.list <- function(x, y, warn_on_dupes = TRUE, allow_unnamed_elements = FALSE, ...)
 {
-  if(is.null(y)) return(x)
+  if(length(y) == 0) return(x)
   y <- coerce_to(y, "list", get_name_in_parent(y))
   
   # Get elements without names
@@ -177,7 +177,7 @@ merge.list <- function(x, y, warn_on_dupes = TRUE, allow_unnamed_elements = FALS
     unnamed_values <- c(x[x_is_unnamed], y[y_is_unnamed])
     x <- x[!x_is_unnamed]
     y <- y[!y_is_unnamed]
-  } else
+  } else # !allow_unnamed_elements
   {
     if(any(x_is_unnamed) || any(y_is_unnamed))
     {
