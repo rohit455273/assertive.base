@@ -1,4 +1,5 @@
-0.0-5 Pipes inside the assertion now work (slight breaking change to get_name_in_parent).
+0.0-5 Regression fixes to merge_dots_with_list, merge.list.
+      Pipes inside the assertion now work (very slight breaking change to get_name_in_parent).
 0.0-4 Many minor fixes and documentation updates.
       dont_stop can now run past multiple errors (slightly breaking change).
       merge.list and merge_dots_with_list deal with unnamed arguments.
