@@ -1,8 +1,8 @@
 Package: assertive.base
 Type: Package
 Title: A Lightweight Core of the 'assertive' Package
-Version: 0.0-5
-Date: 2016-03-08
+Version: 0.0-6
+Date: 2016-03-29
 Author: Richard Cotton [aut, cre],
     Sunkyu Choi [trl],
     Ivanka Skakun [trl],
@@ -60,3 +60,4 @@ Acknowledgments: Development of this package was partially funded by the
     Research Program' funds, a program funded by Qatar Foundation. Ukranian
     translations were supported by www.coupofy.com.
 RoxygenNote: 5.0.1
+ByteCompile: true
