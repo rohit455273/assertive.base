@@ -31,6 +31,7 @@ assert_engine <- function(predicate, ..., msg = "The assertion failed.", what = 
     return(invisible(return_value))
   }
   what <- match.fun(match.arg(what))
+  predicate_name <- get_name_in_parent(predicate)
   
   ok <- predicate(...)
   if(inherits(ok, "scalar_with_cause"))
@@ -41,7 +42,7 @@ assert_engine <- function(predicate, ..., msg = "The assertion failed.", what = 
       {
         msg <- cause(ok)
       }
-      give_feedback(handler_type, msg)
+      give_feedback(handler_type, msg, predicate_name)
     }
   } else # inherits(ok, "vector_with_cause")
   {
@@ -58,13 +59,13 @@ assert_engine <- function(predicate, ..., msg = "The assertion failed.", what = 
     {
       # Append first few failure values and positions to the error message.
       msg <- paste(enc2utf8(msg), print_and_capture(ok), sep = "\n")
-      give_feedback(handler_type, msg)
+      give_feedback(handler_type, msg, predicate_name)
     }
   }
   invisible(return_value)
 }
 
-give_feedback <- function(handler_type, msg)
+give_feedback <- function(handler_type, msg, predicate_name)
 {
   handler <- match.fun(
     handler_type
@@ -80,7 +81,7 @@ give_feedback <- function(handler_type, msg)
   # UTF-8 characters do not display correctly under Windows for some 
   # LC_CTYPE locale values, but there isn't much assertive can do about that.
   # http://stackoverflow.com/q/32696241/134830
-  handler(ass_condition(msg, caller))
+  handler(ass_condition(msg, caller, predicate_name))
 }
 
 #' FALSE, with a cause of failure.

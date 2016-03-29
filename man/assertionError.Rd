@@ -6,16 +6,19 @@
 \alias{assertionWarning}
 \title{Condition classes}
 \usage{
-assertionError(message, call = NULL)
+assertionError(message, call = NULL, predicate_name = NULL)
 
-assertionWarning(message, call = NULL)
+assertionWarning(message, call = NULL, predicate_name = NULL)
 
-assertionMessage(message, call = NULL)
+assertionMessage(message, call = NULL, predicate_name = NULL)
 }
 \arguments{
 \item{message}{A string describing the problem.}
 
 \item{call}{A call describing the source of the condition.}
+
+\item{predicate_name}{A string naming the predicate that was called when the 
+condition occured.}
 }
 \value{
 An object of class \code{assertionError}, \code{assertionWarning}, or
@@ -39,6 +42,11 @@ tryCatch(
     {
       # Handle assertions
       message("This is an assertion condition.")
+      
+      # Handle assertions cause by a specific predicate
+      if(e$predicate_name == "is_true")
+      {
+      }
     } else
     {
       # Handle other error types
