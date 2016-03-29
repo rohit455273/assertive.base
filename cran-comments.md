@@ -1,6 +1,6 @@
 ## Release Summary
 
-This release contains an emergency fix to merge_dots_with_list
+This release contains a change to the assertionConditions.
 
 ## Test Environments
 
@@ -14,4 +14,4 @@ There were no ERRORs or WARNINGs.
 
 ## Downstream dependencies
 
-This fixes the issues in assertive.data, assertive.data.uk, assertive.data.us.
+No API changes.
