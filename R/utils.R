@@ -37,7 +37,7 @@ call_and_name <- function(fn, x, ...)
 {
   y <- fn(x, ...)
   dim(y) <- dim(x)
-  names(y) <- x
+  names(y) <- format(x, digits = 17) # high digits useful in err msg
   y
 }
 
