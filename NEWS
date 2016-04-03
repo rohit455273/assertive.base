@@ -1,5 +1,6 @@
 0.0-6 assertionConditions now include the name of the predicate that caused them.
       Byte compilation turned on (for slight performance gains).
+      Numeric values now reported with high accuracy in vector error msgs.
 0.0-5 Regression fixes to merge_dots_with_list, merge.list.
       Pipes inside the assertion now work (very slight breaking change to get_name_in_parent).
 0.0-4 Many minor fixes and documentation updates.
