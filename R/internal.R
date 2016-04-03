@@ -18,6 +18,7 @@ names_never_null <- function(x)
 #' Prints a variable and captures the output, collapsing the value to a single 
 #' string.
 #' @param x A variable.
+#' @param ... Arguments passed to \code{\link[base]{print}} methods.
 #' @return A string.
 #' @seealso \code{\link[base]{print}}, \code{\link[utils]{capture.output}}
 #' @examples
@@ -27,11 +28,11 @@ names_never_null <- function(x)
 #' }
 #' @importFrom utils capture.output
 #' @noRd
-print_and_capture <- function(x)
+print_and_capture <- function(x, ...)
 {
   # call to enc2utf8 is a workaround for
   # https://bugs.r-project.org/bugzilla3/show_bug.cgi?id=16539
-  enc2utf8(paste(capture.output(print(x)), collapse = "\n"))
+  enc2utf8(paste(capture.output(print(x, ...)), collapse = "\n"))
 }
 
 #' Truncate a string
