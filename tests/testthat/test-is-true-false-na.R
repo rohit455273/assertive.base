@@ -5,7 +5,6 @@ test_that(
     expected <- c(FALSE, TRUE, FALSE)
     actual <- assertive.base::is_false(x)
     expect_equal(strip_attributes(actual), expected)
-    expect_equal(names(actual), as.character(x))
     expect_equal(cause(actual), noquote(c("true", "", "missing")))
   }
 )
@@ -17,7 +16,6 @@ test_that(
     expected <- c(FALSE, FALSE, TRUE)
     actual <- is_na(x)
     expect_equal(strip_attributes(actual), expected)
-    expect_equal(names(actual), as.character(x))
     expect_equal(cause(actual), noquote(c("true", "false", "")))
   }
 ) 
@@ -29,7 +27,6 @@ test_that(
     expected <- rep.int(c(FALSE, TRUE), c(6, 1))
     actual <- is_na(x, coerce_to_logical = FALSE)
     expect_equal(strip_attributes(actual), expected)
-    expect_equal(names(actual), as.character(x))
     expect_equal(
       cause(actual), 
       noquote(rep.int(c("not missing", ""), c(6, 1)))
@@ -47,7 +44,6 @@ test_that(
       "Coercing x to class .logical.\\."
     )
     expect_equal(strip_attributes(actual), expected)
-    expect_equal(names(actual), as.character(x))
     expect_equal(
       cause(actual), 
       noquote(rep.int(c("true", "false", ""), c(1, 1, 5)))
@@ -62,7 +58,6 @@ test_that(
     expected <- rep.int(c(FALSE, TRUE), c(4, 1))
     actual <- is_na(x, coerce_to_logical = FALSE)
     expect_equal(strip_attributes(actual), expected)
-    expect_equal(names(actual), as.character(x))
     expect_equal(
       cause(actual), 
       noquote(rep.int(c("not missing", ""), c(4, 1)))
@@ -80,7 +75,6 @@ test_that(
       "Coercing x to class .logical.\\."
     )
     expect_equal(strip_attributes(actual), expected)
-    expect_equal(names(actual), as.character(x))
     expect_equal(
       cause(actual), 
       noquote(rep.int(c("false", "true", ""), c(1, 3, 1)))
@@ -95,7 +89,6 @@ test_that(
     expected <- rep.int(c(TRUE, FALSE), c(1, 3))
     actual <- is_na(x, coerce_to_logical = FALSE)
     expect_equal(strip_attributes(actual), expected)
-    expect_equal(names(actual), as.character(x))
     expect_equal(
       cause(actual), 
       noquote(rep.int(c("", "not missing"), c(1, 3)))
@@ -121,7 +114,6 @@ test_that(
     expected <- c(TRUE, FALSE, TRUE)
     actual <- is_not_false(x)
     expect_equal(strip_attributes(actual), expected)
-    expect_equal(names(actual), as.character(x))
     expect_equal(cause(actual), noquote(c("", "false", "")))
   }
 )
@@ -133,7 +125,6 @@ test_that(
     expected <- c(TRUE, TRUE, FALSE)
     actual <- is_not_na(x)
     expect_equal(strip_attributes(actual), expected)
-    expect_equal(names(actual), as.character(x))
     expect_equal(cause(actual), noquote(c("", "", "missing")))
   }
 ) 
@@ -145,7 +136,6 @@ test_that(
     expected <- c(FALSE, TRUE, TRUE)
     actual <- is_not_true(x)
     expect_equal(strip_attributes(actual), expected)
-    expect_equal(names(actual), as.character(x))
     expect_equal(cause(actual), noquote(c("true", "", "")))
   }
 ) 
@@ -157,7 +147,6 @@ test_that(
     expected <- c(TRUE, FALSE, FALSE)
     actual <- assertive.base::is_true(x)
     expect_equal(strip_attributes(actual), expected)
-    expect_equal(names(actual), as.character(x))
     expect_equal(cause(actual), noquote(c("", "false", "missing")))
   }
 ) 
