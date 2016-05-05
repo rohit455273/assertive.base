@@ -53,10 +53,11 @@
 #' assert_is_identical_to_false(matrix(FALSE), allow_attributes = TRUE)
 #' assert_is_identical_to_na(structure(NA, class = "nanana"), allow_attributes = TRUE)
 #' 
-#' # Vectorized predicates
+#' # Vectorized predicates (package name explicitly given to prevent
+#' # problems with testthat name clash)
 #' x <- c(TRUE, FALSE, NA)
-#' is_true(x)
-#' is_false(x)
+#' assertive.base::is_true(x)
+#' assertive.base::is_false(x)
 #' is_na(x)
 #' 
 #' # ...and their opposites
