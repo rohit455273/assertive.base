@@ -1,3 +1,45 @@
+test_that(
+  "to_names with a character vector returns unquoted character names",
+  {
+    x <- c("abc", "", "NA", NA)
+    expected <- x
+    actual <- to_names(x)
+    expect_equal(actual, expected)
+  }
+)
+
+test_that(
+  "to_names with a (double) numeric vector returns 17 sig fig 'g' formatting",
+  {
+    x <- with(.Machine, c(1 + double.eps, double.xmax, double.xmin, NaN, -Inf, NA))
+    expected <- ifelse(is.na(x), NA_real_, sprintf("%.17g", x))
+    actual <- to_names(x)
+    expect_equal(actual, expected)
+  }
+)
+
+test_that(
+  "to_names with a complex vector returns returns 17 sig fig 'g' formatting for each component",
+  {
+    x <-  with(.Machine, c(1 + double.eps, double.xmax, double.xmin, NaN, -Inf, NA)) * (1 + 1i)
+    expected <- ifelse(is.na(x), NA_complex_, sprintf("%.17g+%.17gi", Re(x), Im(x)))
+    actual <- to_names(x)
+    expect_equal(actual, expected)
+  }
+)
+
+test_that(
+  "to_names with a list input returns deparsed object",
+  {
+    x <- list(NA, 1 + .Machine$double.eps, "abc", list(Inf, list("def", NA)))
+    expected <- as.character(x)
+    actual <- to_names(x)
+    expect_equal(actual, expected)
+  }
+)
+
+
+
 test_that("test.coerce_to.numeric_vector_to_data_frame.returns_data_frame", 
   {
     x <- 1:5

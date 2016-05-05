@@ -37,8 +37,33 @@ call_and_name <- function(fn, x, ...)
 {
   y <- fn(x, ...)
   dim(y) <- dim(x)
-  names(y) <- trimws(format(x, digits = 17)) # high digits useful in err msg
+  names(y) <- to_names(x)
   y
+}
+
+# Lots of issues about how best to generate names!
+# Original behaviour was to use as.character everywhere, but high precision
+# wanted for numbers, so behaviour was changed to use format.  This breaks 
+# lots of tests.  Here are the requirements.
+# - For atomic vectors, NA values should be given a missing name, not "NA"
+#   -> Can't use deparse, format
+# - Numbers should be given to high precision (inc complex)
+#   -> Can't use as.character on numbers
+# - Character vectors shouldn't be quoted
+#   -> Can't use deparse
+# - Recursive variables should just be a deparse, but exact details not too fussy (too rare)
+to_names <- function(x)
+{
+  if(is.double(x))
+  {
+    ifelse(is.na(x), NA_real_, sprintf("%.17g", x))
+  } else if(is.complex(x))
+  {
+    ifelse(is.na(x), NA_complex_, sprintf("%.17g+%.17gi", Re(x), Im(x)))
+  } else
+  {
+    as.character(x)
+  }
 }
 
 #' Run code without stopping
