@@ -147,7 +147,8 @@ assert_is_identical_to_true(c(truth = TRUE), allow_attributes = TRUE)
 assert_is_identical_to_false(matrix(FALSE), allow_attributes = TRUE)
 assert_is_identical_to_na(structure(NA, class = "nanana"), allow_attributes = TRUE)
 
-# Vectorized predicates
+# Vectorized predicates (package name explicitly given to prevent
+# problems with testthat name clash)
 x <- c(TRUE, FALSE, NA)
 assertive.base::is_true(x)
 assertive.base::is_false(x)
