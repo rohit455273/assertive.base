@@ -167,6 +167,8 @@ assert_any_are_na(x)
 # These tests should fail:
 dont_stop({
   assert_is_identical_to_true(c(truth = TRUE))
+  assert_is_identical_to_true(1)
+  assert_is_identical_to_true(c(TRUE, TRUE))
   assert_is_identical_to_false(matrix(FALSE))
   assert_is_identical_to_na(structure(NA, class = "nanana"))
   assert_all_are_true(x)
