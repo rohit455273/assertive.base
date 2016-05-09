@@ -54,7 +54,9 @@ call_and_name <- function(fn, x, ...)
 # - Recursive variables should just be a deparse, but exact details not too fussy (too rare)
 to_names <- function(x)
 {
-  if(is.double(x))
+  # special handling for double, complex only
+  # is.vector to prevent matching to POSIXct
+  if(is.double(x) && is.vector(x))
   {
     ifelse(is.na(x), NA_real_, sprintf("%.17g", x))
   } else if(is.complex(x))
