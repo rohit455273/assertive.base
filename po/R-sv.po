@@ -87,8 +87,8 @@ msgstr "Duplicerade argument:"
 msgid "%s has length 0."
 msgstr "%s har längd 0."
 
-msgid "Only the first value of %s will be used."
-msgstr "Bara det första värdet av %s kommer användas."
+msgid "Only the first value of %s (= %s) will be used."
+msgstr "Bara det första värdet av %s (= %s) kommer användas."
 
 msgid "There was %d failure%s:\n"
 msgid_plural "There were %d failures%s:\n"

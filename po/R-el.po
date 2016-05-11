@@ -87,8 +87,8 @@ msgstr "Διπλότυπο όρισμα:"
 msgid "%s has length 0."
 msgstr "%s έχει μέγεθος τιμής 0."
 
-msgid "Only the first value of %s will be used."
-msgstr "Μόνο η πρώτη τιμή του %s θα χρησιμοποιηθεί."
+msgid "Only the first value of %s (= %s) will be used."
+msgstr "Μόνο η πρώτη τιμή του %s (= %s) θα χρησιμοποιηθεί."
 
 msgid "There was %d failure%s:\n"
 msgid_plural "There were %d failures%s:\n"

@@ -87,8 +87,8 @@ msgstr "Дубльовані аргументи:"
 msgid "%s has length 0."
 msgstr "%s має довжину 0."
 
-msgid "Only the first value of %s will be used."
-msgstr "Тільки перше значення %s буде використане."
+msgid "Only the first value of %s (= %s) will be used."
+msgstr "Тільки перше значення %s (= %s) буде використане."
 
 msgid "There was %d failure%s:\n"
 msgid_plural "There were %d failures%s:\n"
