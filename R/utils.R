@@ -370,9 +370,10 @@ use_first <- function(x, indexer = c("[[", "["), .xname = get_name_in_parent(x))
     return(x)
   }
   indexer <- match.fun(match.arg(indexer))
+  x1 <- indexer(x, 1L)
   warning(
-    sprintf("Only the first value of %s will be used.", .xname),
+    sprintf("Only the first value of %s (= %s) will be used.", .xname, as.character(x1)),
     call. = FALSE
   )
-  indexer(x, 1L)
+  x1
 }
