@@ -1,6 +1,6 @@
 ## Release Summary
 
-This release contains a change to the assertionConditions.
+This release contains improvements to how error messages are reported throughout the assertive.* packages.
 
 ## Test Environments
 
@@ -14,4 +14,4 @@ There were no ERRORs or WARNINGs.
 
 ## Downstream dependencies
 
-No API changes.
+This breaks a few tests in assertive.datetimes, assertive.files, and assertive.numbers.  These, along with some other assertive.* packages, will be updated once this version appears on CRAN.

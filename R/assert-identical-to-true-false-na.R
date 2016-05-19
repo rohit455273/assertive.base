@@ -70,7 +70,7 @@
 #' assert_any_are_false(x)
 #' assert_any_are_na(x)
 #' 
-#' # These tests should fail:
+#' # These checks should fail:
 #' dont_stop({
 #'   assert_is_identical_to_true(c(truth = TRUE))
 #'   assert_is_identical_to_true(1)
