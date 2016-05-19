@@ -77,7 +77,14 @@ give_feedback <- function(handler_type, msg, predicate_name)
     message = assertionMessage
   )
   # Throw error/warning/message
-  caller <- sys.call(-3)
+  caller <- if(sys.nframe() >= 3)
+  {
+    sys.call(-3)
+  } else
+  {
+    NULL
+  }
+  
   # UTF-8 characters do not display correctly under Windows for some 
   # LC_CTYPE locale values, but there isn't much assertive can do about that.
   # http://stackoverflow.com/q/32696241/134830
