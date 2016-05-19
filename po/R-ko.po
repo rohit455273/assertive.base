@@ -87,8 +87,8 @@ msgstr "이중 인수:"
 msgid "%s has length 0."
 msgstr "%s는 0 길이를 갖습니다."
 
-msgid "Only the first value of %s will be used."
-msgstr "오직 첫번째 %s의 값만 사용 되어 질 것 입니다."
+msgid "Only the first value of %s (= %s) will be used."
+msgstr "오직 첫번째 %s의 (= %s) 값만 사용 되어 질 것 입니다."
 
 msgid "There was %d failure%s:\n"
 msgid_plural "There were %d failures%s:\n"

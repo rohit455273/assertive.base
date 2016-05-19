@@ -54,7 +54,9 @@ call_and_name <- function(fn, x, ...)
 # - Recursive variables should just be a deparse, but exact details not too fussy (too rare)
 to_names <- function(x)
 {
-  if(is.double(x))
+  # special handling for double, complex only
+  # is.vector to prevent matching to POSIXct
+  if(is.double(x) && is.vector(x))
   {
     ifelse(is.na(x), NA_real_, sprintf("%.17g", x))
   } else if(is.complex(x))
@@ -368,9 +370,10 @@ use_first <- function(x, indexer = c("[[", "["), .xname = get_name_in_parent(x))
     return(x)
   }
   indexer <- match.fun(match.arg(indexer))
+  x1 <- indexer(x, 1L)
   warning(
-    sprintf("Only the first value of %s will be used.", .xname),
+    sprintf("Only the first value of %s (= %s) will be used.", .xname, as.character(x1)),
     call. = FALSE
   )
-  indexer(x, 1L)
+  x1
 }

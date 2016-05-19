@@ -87,8 +87,8 @@ msgstr "Повторяющиеся аргументы:"
 msgid "%s has length 0."
 msgstr "%s имеет длину 0."
 
-msgid "Only the first value of %s will be used."
-msgstr "Будет использовано только первое значение %s."
+msgid "Only the first value of %s (= %s) will be used."
+msgstr "Будет использовано только первое значение %s (= %s)."
 
 msgid "There was %d failure%s:\n"
 msgid_plural "There were %d failures%s:\n"

@@ -86,7 +86,7 @@ msgstr ""
 msgid "%s has length 0."
 msgstr ""
 
-msgid "Only the first value of %s will be used."
+msgid "Only the first value of %s (= %s) will be used."
 msgstr ""
 
 msgid        "There was %d failure%s:\n"

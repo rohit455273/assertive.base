@@ -87,8 +87,8 @@ msgstr "Arguments dupliqués:"
 msgid "%s has length 0."
 msgstr "%s a une longueur de 0"
 
-msgid "Only the first value of %s will be used."
-msgstr "Seule la première valeur de %s sera utilisée"
+msgid "Only the first value of %s (= %s) will be used."
+msgstr "Seule la première valeur de %s (= %s) sera utilisée"
 
 msgid "There was %d failure%s:\n"
 msgid_plural "There were %d failures%s:\n"
