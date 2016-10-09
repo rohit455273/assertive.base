@@ -140,14 +140,11 @@ dont_stop <- function(expr)
 #' @export
 get_name_in_parent <- function(x, escape_percent = TRUE)
 {  
-  xname <- paste0(
-    deparse(
-      do.call(
-        substitute, 
-        list(substitute(x), parent.frame())
-      )
-    ),
-    collapse = ""
+  xname <- safe_deparse(
+    do.call(
+      substitute, 
+      list(substitute(x), parent.frame())
+    )
   )
   if(escape_percent)
   {
