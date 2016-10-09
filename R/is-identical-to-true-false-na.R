@@ -10,8 +10,9 @@ is_identical_to_false <- function(x, allow_attributes = FALSE,
   if(!identical(FALSE, x)) 
   {
     msg <- gettextf(
-      "%s is not identical to FALSE.", 
+      "%s is not identical to FALSE; its value is %s.", 
       .xname, 
+      safe_deparse(x),
       domain = "R-assertive.base"
     )
     return(false(msg))
@@ -35,8 +36,9 @@ is_identical_to_na <- function(x, allow_attributes = FALSE,
      !identical(NA_complex_, x))
   {
     msg <- gettextf(
-      "%s is not identical to NA.", 
+      "%s is not identical to NA; its value is %s.", 
       .xname, 
+      safe_deparse(x),
       domain = "R-assertive.base"
     )
     return(false(msg))
@@ -56,8 +58,9 @@ is_identical_to_true <- function(x, allow_attributes = FALSE,
   if(!identical(TRUE, x))
   {
     msg <- gettextf(
-      "%s is not identical to TRUE.", 
+      "%s is not identical to TRUE; its value is %s.", 
       .xname, 
+      safe_deparse(x),
       domain = "R-assertive.base"
     )
     return(false(msg))
