@@ -62,19 +62,33 @@ cause <- function(x)
 #' @export
 set_cause <- function(x, false_value, missing_value = "missing")
 {
-  if(all(!is.na(x) & x)) return(x)
+  if(!anyNA(x) && all(x, na.rm = TRUE)) # fast version of all(!is.na(x) & x)
+  {
+    return(x)
+  }
+  is_na_x <- is.na(x)
   len_x <- length(x)
   # TRUEs
   cause_value <- character(len_x)
   # NAs
-  missing_value <- rep_len(missing_value, len_x)
-  missing_index <- is.na(x)
-  cause_value[missing_index] <- missing_value[missing_index]
+  if(length(missing_value) == 1)
+  {
+    cause_value[is_na_x] <- missing_value
+  } else
+  {
+    missing_value <- rep_len(missing_value, len_x)
+    cause_value[is_na_x] <- missing_value[is_na_x]
+  }
   # FALSEs
-  false_value <- rep_len(false_value, len_x)
-  false_index <- !x & !is.na(x)
-  cause_value[false_index] <- false_value[false_index]
-  
+  false_index <- !(x | is_na_x) # more efficient to calc than !x & !is_na_x
+  if(length(false_value) == 1)
+  {
+    cause_value[false_index] <- false_value
+  } else
+  {
+    false_value <- rep_len(false_value, len_x)
+    cause_value[false_index] <- false_value[false_index]
+  }
   cause(x) <- cause_value
   class(x) <- c("vector_with_cause", "logical")
   x
