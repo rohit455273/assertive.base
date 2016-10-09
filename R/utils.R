@@ -101,14 +101,7 @@ dont_stop <- function(expr)
     subbed_expr <- c(brace, subbed_expr)
   }
   call_list <- as.list(subbed_expr)[-1L] # -1 to ignore brace again
-  names(call_list) <- vapply(
-    call_list, 
-    function(x) 
-    {
-      paste0(deparse(x), collapse = "")
-    }, 
-    character(1)
-  )
+  names(call_list) <- vapply(call_list, safe_deparse, character(1))
   
   handler <- function(e)
   {
@@ -323,6 +316,29 @@ parenthesize <- function(x,
 #' @rdname parenthesize
 #' @export
 parenthesise <- parenthesize
+
+#' Safe version of deparse
+#' 
+#' A version of \code{\link[base]{deparse}} that is guaranteed to always return 
+#' a single string.
+#' @param expr Any R expression.
+#' @param ... Passed to \code{\link[base]{deparse}}.
+#' @return A character vector or length one.
+#' @note By default the RStudio IDE truncates output in the console at 1000 
+#' characters.  Consequently, if you use \code{safe_deparse} on large or complex
+#' objects, you won't see the full value. You can change the setting using
+#' Tools -> "Global Options..." -> Code -> Display -> Console -> "Limit length
+#' of lines displayed in console to:".
+#' @examples
+#' # safe_deparse only differs from deparse when the deparse string is longer
+#' # than width.cutoff
+#' deparse(CO2, width.cutoff = 500L) # has length 6
+#' safe_deparse(CO2)                 # has length 1
+#' @export
+safe_deparse <- function(expr, ...) 
+{
+  paste0(deparse(expr, width.cutoff = 500L, ...), collapse = "")
+}
 
 #' Strip all attributes from a variable
 #'
