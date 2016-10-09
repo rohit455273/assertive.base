@@ -93,8 +93,9 @@ is_true <- function(x, .xname = get_name_in_parent(x))
   call_and_name(
     function(x) 
     {
-      ok <- x & !is.na(x)
-      set_cause(ok, ifelse(is.na(x), "missing", "false"))   
+      is_na_x <- is.na(x)
+      ok <- x & !is_na_x
+      set_cause(ok, ifelse(is_na_x, "missing", "false"))   
     }, 
     x
   )
