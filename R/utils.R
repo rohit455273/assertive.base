@@ -314,6 +314,26 @@ parenthesize <- function(x,
 #' @export
 parenthesise <- parenthesize
 
+#' Print a variable and capture the output
+#' 
+#' Prints a variable and captures the output, collapsing the value to a single 
+#' string.
+#' @param x A variable.
+#' @param ... Arguments passed to \code{\link[base]{print}} methods.
+#' @return A string.
+#' @seealso \code{\link[base]{print}}, \code{\link[utils]{capture.output}}
+#' @examples
+#' # This is useful for including data frames in warnings or errors
+#' message("This is the sleep dataset:\n", print_and_capture(sleep))
+#' @importFrom utils capture.output
+#' @export
+print_and_capture <- function(x, ...)
+{
+  # call to enc2utf8 is a workaround for
+  # https://bugs.r-project.org/bugzilla3/show_bug.cgi?id=16539
+  enc2utf8(paste(capture.output(print(x, ...)), collapse = "\n"))
+}
+
 #' Safe version of deparse
 #' 
 #' A version of \code{\link[base]{deparse}} that is guaranteed to always return 

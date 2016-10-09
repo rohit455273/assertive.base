@@ -1,4 +1,5 @@
 0.0-7 Added safe_deparse fn.
+      Exported print_and_capture.
       Some moderate performance enhancements for vectorized predicates.
 0.0-6 assertionConditions now include the name of the predicate that caused them.
       This predicate name is given in assertion failure messages.
