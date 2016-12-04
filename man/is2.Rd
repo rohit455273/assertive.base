@@ -25,6 +25,7 @@ If not, call \code{is(x, class)}.
 is2(1:5, "character")
 is2(matrix(1:5), "character")
 is2(1:5, c("character", "list", "numeric"))
+is2(mean, c("function", "data.frame"))
 }
 \seealso{
 \code{\link[methods]{is}}, and 

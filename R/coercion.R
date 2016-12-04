@@ -13,6 +13,7 @@
 #' is2(1:5, "character")
 #' is2(matrix(1:5), "character")
 #' is2(1:5, c("character", "list", "numeric"))
+#' is2(mean, c("function", "data.frame"))
 #' @importFrom methods is
 #' @export
 is2 <- function(x, class, .xname = get_name_in_parent(x))
@@ -24,7 +25,7 @@ is2 <- function(x, class, .xname = get_name_in_parent(x))
     return(
       set_cause(
         bapply(class, function(cl) is2(x, cl, "")),
-        rep.int(type_description(x), length(class))
+        sprintf("%s is not '%s'", type_description(x), class)
       )
     )
   }
@@ -42,7 +43,7 @@ is2 <- function(x, class, .xname = get_name_in_parent(x))
   {
     return(
       false(
-        "%s is not of type '%s'; it has %s.", 
+        "%s is not of class '%s'; it has %s.", 
         .xname, 
         class, 
         type_description(x)
@@ -141,12 +142,19 @@ coerce_to <- function(x, target_class, .xname = get_name_in_parent(x))
 #' Get the class or mode (for arrays).
 #' @param x A variable.
 #' @return A string.
+#' @noRd
 type_description <- function(x)
 {
   if(is.array(x))
   {
-    sprintf("mode '%s'", mode(x))
-  } else
+    sprintf(sprintf("class '%s %s'", class(x[FALSE]), toString(class(x))))
+  } else if(is.function(x))
+  {
+    sprintf(sprintf("class '%s %s'", typeof(x), toString(class(x))))
+  } else if(isS4(x))
+  {
+    sprintf(sprintf("S4 class '%s'", toString(class(x))))
+  }  else
   {
     sprintf("class '%s'", toString(class(x)))
   }
