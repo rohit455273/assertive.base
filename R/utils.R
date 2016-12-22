@@ -31,6 +31,15 @@ bapply <- function(x, predicate, ...)
 #' sure that this condition holds.
 #' @examples
 #' call_and_name(is.finite, c(1, Inf, NA))
+#' 
+#' # Make sure that the output is the same size as the input.
+#' # Don't do this:
+#' dont_stop(call_and_name(isTRUE, list(TRUE, FALSE, NA)))
+#' # Do this instead:
+#' call_and_name(
+#'   Vectorize(isTRUE, SIMPLIFY = FALSE),
+#'   list(TRUE, FALSE, NA)
+#' )
 #' @seealso \code{\link{cause}} and \code{\link{na}}.
 #' @export
 call_and_name <- function(fn, x, ...)
