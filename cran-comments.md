@@ -14,4 +14,4 @@ There were no ERRORs or WARNINGs.
 
 ## Downstream dependencies
 
-No problems found.
+New versions of assertive.properties, assertive.types, assertive.reflection, and assertive.sets, and assertive will be uploaded once this has been accepted on CRAN.
