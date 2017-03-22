@@ -2,8 +2,7 @@
 [![Is the package on CRAN?](http://www.r-pkg.org/badges/version/assertive.base)](http://www.r-pkg.org/pkg/assertive.base)
 [![SemaphoreCI Build Status](https://semaphoreci.com/api/v1/projects/01fd8743-d3d2-42ad-b63d-e94c5844e951/635080/badge.svg)](https://semaphoreci.com/richierocks/assertive-base)
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/ubs74w5tm2mxgfne?svg=true)](https://ci.appveyor.com/project/richierocks/assertive-base)
-[![Codecov Test Coverage Status](https://codecov.io/bitbucket/richierocks/assertive.base/coverage.svg?branch=master)](https://codecov.io/bitbucket/richierocks/assertive.base?branch=master)
-[![Coveralls Test Coverage Status](https://coveralls.io/repos/richierocks/assertive.base/badge.svg?branch=master&service=bitbucket)](https://coveralls.io/bitbucket/richierocks/assertive.base?branch=master)
+[![Research software impact](http://depsy.org/api/package/cran/assertive.base/badge.svg)](http://depsy.org/package/r/assertive.base)
 
 # assertive.base
 
