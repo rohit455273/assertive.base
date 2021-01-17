@@ -31,4 +31,3 @@ of lines displayed in console to:".
 deparse(CO2, width.cutoff = 500L) # has length 6
 safe_deparse(CO2)                 # has length 1
 }
-

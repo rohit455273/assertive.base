@@ -21,4 +21,3 @@ x2 <- strip_attributes(x)
 attributes(x)
 attributes(x2)
 }
-

@@ -20,9 +20,8 @@ string.
 }
 \examples{
 # This is useful for including data frames in warnings or errors
-message("This is the sleep dataset:\\n", print_and_capture(sleep))
+message("This is the sleep dataset:\n", print_and_capture(sleep))
 }
 \seealso{
 \code{\link[base]{print}}, \code{\link[utils]{capture.output}}
 }
-

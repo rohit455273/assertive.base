@@ -4,8 +4,12 @@
 \alias{merge_dots_with_list}
 \title{Merge ellipsis args with a list.}
 \usage{
-merge_dots_with_list(..., l = list(), warn_on_dupes = TRUE,
-  allow_unnamed_elements = FALSE)
+merge_dots_with_list(
+  ...,
+  l = list(),
+  warn_on_dupes = TRUE,
+  allow_unnamed_elements = FALSE
+)
 }
 \arguments{
 \item{...}{Some inputs.}
@@ -39,4 +43,3 @@ merge_dots_with_list(
 \seealso{
 \code{\link{merge.list}}, \code{\link[base]{merge}}
 }
-

@@ -31,4 +31,3 @@ is2(mean, c("function", "data.frame"))
 \code{\link[methods]{is}}, and 
 \code{\link[assertive.types]{assert_is_all_of}} for the corresponding assert fns.
 }
-

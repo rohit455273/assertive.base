@@ -33,4 +33,3 @@ cause(yn)
 \seealso{
 \code{\link{set_cause}}
 }
-

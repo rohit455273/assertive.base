@@ -2,8 +2,8 @@
 % Please edit documentation in R/conditions.R
 \name{assertionError}
 \alias{assertionError}
-\alias{assertionMessage}
 \alias{assertionWarning}
+\alias{assertionMessage}
 \title{Condition classes}
 \usage{
 assertionError(message, call = NULL, predicate_name = NULL)
@@ -54,4 +54,3 @@ tryCatch(
   }
 )
 }
-

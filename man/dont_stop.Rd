@@ -34,4 +34,3 @@ dont_stop({
 generating warnings and errors respectively; \code{\link[base]{try}} and
 \code{\link[base]{conditions}} for handling them.
 }
-

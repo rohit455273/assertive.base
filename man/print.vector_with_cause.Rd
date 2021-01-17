@@ -27,4 +27,3 @@ to show.}
 Prints objects of class \code{scalar_with_cause} and 
 \code{vector_with_cause}.
 }
-

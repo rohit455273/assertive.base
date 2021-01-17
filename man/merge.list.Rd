@@ -4,8 +4,7 @@
 \alias{merge.list}
 \title{Merge two lists}
 \usage{
-\method{merge}{list}(x, y, warn_on_dupes = TRUE,
-  allow_unnamed_elements = FALSE, ...)
+\method{merge}{list}(x, y, warn_on_dupes = TRUE, allow_unnamed_elements = FALSE, ...)
 }
 \arguments{
 \item{x}{A list.}
@@ -46,4 +45,3 @@ merge(
 \seealso{
 \code{\link{merge_dots_with_list}}, \code{\link[base]{merge}}
 }
-

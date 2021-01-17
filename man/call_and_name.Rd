@@ -41,4 +41,3 @@ call_and_name(
 \seealso{
 \code{\link{cause}} and \code{\link{na}}.
 }
-

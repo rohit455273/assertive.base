@@ -4,9 +4,14 @@
 \alias{assert_engine}
 \title{Throws an error if a condition isn't met}
 \usage{
-assert_engine(predicate, ..., msg = "The assertion failed.", what = c("all",
-  "any"), na_ignore = FALSE, severity = c("stop", "warning", "message",
-  "none"))
+assert_engine(
+  predicate,
+  ...,
+  msg = "The assertion failed.",
+  what = c("all", "any"),
+  na_ignore = FALSE,
+  severity = c("stop", "warning", "message", "none")
+)
 }
 \arguments{
 \item{predicate}{Function that returns a logical value (possibly 
@@ -60,4 +65,3 @@ dont_stop(assert_engine(is.matrix, 1:5))
 assert_engine(is_true, c(TRUE, FALSE, NA), severity = "message")
 
 }
-

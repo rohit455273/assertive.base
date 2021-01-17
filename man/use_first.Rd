@@ -25,4 +25,3 @@ with a warning.
 \examples{
 dont_stop(use_first(1:5))
 }
-

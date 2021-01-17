@@ -3,18 +3,27 @@
 \name{are_identical}
 \alias{are_identical}
 \alias{are_identical_legacy}
+\alias{assert_are_identical}
 \alias{assert_all_are_identical_legacy}
 \alias{assert_any_are_identical_legacy}
-\alias{assert_are_identical}
 \title{Are the inputs identical?}
 \usage{
-are_identical(x, y, allow_attributes = FALSE,
-  .xname = get_name_in_parent(x), .yname = get_name_in_parent(y))
+are_identical(
+  x,
+  y,
+  allow_attributes = FALSE,
+  .xname = get_name_in_parent(x),
+  .yname = get_name_in_parent(y)
+)
 
 are_identical_legacy(..., l = list())
 
-assert_are_identical(x, y, allow_attributes = FALSE,
-  severity = getOption("assertive.severity", "stop"))
+assert_are_identical(
+  x,
+  y,
+  allow_attributes = FALSE,
+  severity = getOption("assertive.severity", "stop")
+)
 
 assert_all_are_identical_legacy(..., l = list())
 
@@ -61,4 +70,3 @@ assertive.base::dont_stop(assert_are_identical(c(1, 1), cos(c(0, pi))))
 \code{\link[base]{identical}}, 
 \code{\link[assertive.properties]{are_same_length}}
 }
-

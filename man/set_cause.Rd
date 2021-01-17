@@ -30,4 +30,3 @@ without setting a cause.  Otherwise, the cause is an empty string where
 \seealso{
 \code{\link{cause}}, \code{\link[stats]{setNames}}
 }
-

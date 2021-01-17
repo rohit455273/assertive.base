@@ -38,4 +38,3 @@ dont_stop(coerce_to(1:5, c("call", "character")))
 \seealso{
 \code{\link[methods]{is}} and \code{\link[methods]{as}}.
 }
-

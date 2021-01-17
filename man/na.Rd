@@ -19,4 +19,3 @@ Always returns the value (logical) \code{NA}, with a cause attribute.
 \seealso{
 \code{\link{cause}} and \code{\link{false}}.
 }
-

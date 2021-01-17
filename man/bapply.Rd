@@ -27,4 +27,3 @@ scalar) value.
 \seealso{
 \code{\link{vapply}}.
 }
-
