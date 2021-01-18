@@ -85,7 +85,7 @@ test_that(
       function() {} 
     )
     # don't test for identicality due to function environment
-    expect_equal(actual, expected)
+    expect_equal(actual, expected, check.environment = FALSE)
   }
 )
 
