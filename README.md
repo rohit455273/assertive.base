@@ -1,8 +1,7 @@
-[![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/0.1.0/active.svg)](http://www.repostatus.org/#active)
-[![Is the package on CRAN?](http://www.r-pkg.org/badges/version/assertive.base)](http://www.r-pkg.org/pkg/assertive.base)
+[![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/0.1.0/active.svg)](https://www.repostatus.org/#active)
+[![Is the package on CRAN?](https://www.r-pkg.org/badges/version/assertive.base)](https://www.r-pkg.org/pkg/assertive.base)
 [![SemaphoreCI Build Status](https://semaphoreci.com/api/v1/projects/01fd8743-d3d2-42ad-b63d-e94c5844e951/635080/badge.svg)](https://semaphoreci.com/richierocks/assertive-base)
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/ubs74w5tm2mxgfne?svg=true)](https://ci.appveyor.com/project/richierocks/assertive-base)
-[![Research software impact](http://depsy.org/api/package/cran/assertive.base/badge.svg)](http://depsy.org/package/r/assertive.base)
 
 # assertive.base
 

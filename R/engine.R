@@ -106,7 +106,7 @@ give_feedback <- function(handler_type, msg, predicate_name)
   
   # UTF-8 characters do not display correctly under Windows for some 
   # LC_CTYPE locale values, but there isn't much assertive can do about that.
-  # http://stackoverflow.com/q/32696241/134830
+  # https://stackoverflow.com/q/32696241/134830
   handler(ass_condition(paste(predicate_name, msg, sep = " : "), caller, predicate_name))
 }
 
