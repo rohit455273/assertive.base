@@ -2,7 +2,7 @@ Package: assertive.base
 Type: Package
 Title: A Lightweight Core of the 'assertive' Package
 Version: 0.0-8
-Date: 2021-01-17
+Date: 2021-01-24
 Author: Richard Cotton [aut, cre],
     Sunkyu Choi [trl],
     Ivanka Skakun [trl],
@@ -56,7 +56,7 @@ LazyData: yes
 Roxygen: list(wrap = FALSE)
 Acknowledgments: Development of this package was partially funded by the
     Proteomics Core at Weill Cornell Medical College in Qatar
-    <http://qatar-weill.cornell.edu>.  The Core is supported by 'Biomedical
+    <https://qatar-weill.cornell.edu>.  The Core is supported by 'Biomedical
     Research Program' funds, a program funded by Qatar Foundation. Ukranian
     translations were supported by www.coupofy.com.
 RoxygenNote: 7.1.1
