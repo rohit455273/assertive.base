@@ -1,4 +1,4 @@
-[![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/0.1.0/active.svg)](https://www.repostatus.org/#active)
+[![Project Status: Inactive – The project has reached a stable, usable state but is no longer being actively developed; support/maintenance will be provided as time allows.](https://www.repostatus.org/badges/latest/inactive.svg)](https://www.repostatus.org/#inactive)
 [![Is the package on CRAN?](https://www.r-pkg.org/badges/version/assertive.base)](https://www.r-pkg.org/pkg/assertive.base)
 [![SemaphoreCI Build Status](https://semaphoreci.com/api/v1/projects/01fd8743-d3d2-42ad-b63d-e94c5844e951/635080/badge.svg)](https://semaphoreci.com/richierocks/assertive-base)
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/ubs74w5tm2mxgfne?svg=true)](https://ci.appveyor.com/project/richierocks/assertive-base)
