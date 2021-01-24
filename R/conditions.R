@@ -34,44 +34,47 @@
 #' @export
 assertionError <- function(message, call = NULL, predicate_name = NULL)
 {
-  class <- c("assertionError", "assertionCondition", "simpleError", "error", "condition")
-  structure(
-    list(
-      message = as.character(message), 
-      call = call,
-      predicate_name = predicate_name
-    ), 
-    class = class
+  aerr <- list(
+    message = as.character(message), 
+    call = call,
+    predicate_name = predicate_name
   )
+  class(aer) <- c(
+    "assertionError", "assertionCondition", 
+    "simpleError", "error", "condition"
+  )
+  aerr
 }
 
 #' @rdname assertionError
 #' @export
 assertionWarning <- function(message, call = NULL, predicate_name = NULL)
 {
-  class <- c("assertionWarning", "assertionCondition", "simpleWarning", "warning", "condition")
-  structure(
-    list(
-      message = as.character(message), 
-      call = call,
-      predicate_name = predicate_name
-    ), 
-    class = class
+  awrn <- list(
+    message = as.character(message), 
+    call = call,
+    predicate_name = predicate_name
   )
+  class(awrn) <- c(
+    "assertionWarning", "assertionCondition", 
+    "simpleWarning", "warning", "condition"
+  )
+  awrn
 }
 
 #' @rdname assertionError
 #' @export
 assertionMessage <- function(message, call = NULL, predicate_name = NULL)
 {
-  class <- c("assertionMessage", "assertionCondition", "simpleMessage", "message", "condition")
-  structure(
-    list(
-      message = as.character(message), 
-      call = call,
-      predicate_name = predicate_name
-    ), 
-    class = class
+  amsg <- list(
+    message = as.character(message), 
+    call = call,
+    predicate_name = predicate_name
   )
+  class(amsg) <- c(
+    "assertionMessage", "assertionCondition", 
+    "simpleMessage", "message", "condition"
+  )
+  amsg
 }
 
