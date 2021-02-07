@@ -39,7 +39,7 @@ assertionError <- function(message, call = NULL, predicate_name = NULL)
     call = call,
     predicate_name = predicate_name
   )
-  class(aer) <- c(
+  class(aerr) <- c(
     "assertionError", "assertionCondition", 
     "simpleError", "error", "condition"
   )
