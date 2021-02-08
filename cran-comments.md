@@ -1,6 +1,6 @@
 ## Release Summary
 
-Maintenance release fixing a broken test due to changes in all.equal() in R 4.1.
+Regression fixes plus more tests.
 
 ## Test Environments
 

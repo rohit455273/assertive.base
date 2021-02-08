@@ -1,3 +1,4 @@
+0.0-9 Bug-fix + tests.
 0.0-8 R 4.1 compatibility.
 0.0-7 Added safe_deparse fn.
       Exported print_and_capture.
